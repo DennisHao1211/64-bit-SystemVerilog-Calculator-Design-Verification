@@ -1,0 +1,15 @@
+../../src/verilog/calculator_pkg.sv
+../../src/verilog/adder32.sv
+../../src/verilog/controller.sv
+../../src/verilog/full_adder.sv
+../../src/verilog/result_buffer.sv
+../../src/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.sv
+../../src/verilog/top_lvl.sv
+../../src/verilog/calc_seq_item.svh
+../../src/verilog/calc_tb_pkg.sv
+../../src/verilog/calc_driver.svh
+../../src/verilog/calc_monitor.svh
+../../src/verilog/calc_sb.svh
+../../src/verilog/calc_sequencer.svh
+../../src/verilog/calc_if.sv
+../../src/verilog/calc_tb_top.sv

@@ -99,7 +99,7 @@ Randomized constrained testing in SystemVerilog is similar to Python-based rando
 To view your coverage report in Verdi, run `make link`, change `VERILOG_DEFINES` in the Makefile to `VCS=1` instead of `CADENCE=1`, run `make vcs`, then `make coverage`. Set it back to `CADENCE=1` to use Xcelium and the Cadence waveform viewers later. Make sure you are in the `sim/behav` directory:
 ![Image of coverage](screenshots/coverage.png "Coverage")
 
-In industry, typically DV teams reach a minimum 98% coverage score (or even 100% sometimes!) before confirming a DUT is verified. For the sake of our onboarding, we will try to reach at least **96%** coverage. Once all of the tests are implemented, you should be able to achieve this score.
+In industry, typically DV teams reach a minimum 98% coverage score (or even 100% sometimes!) before confirming a DUT is verified. For the sake of our onboarding, we will try to reach at least **96%** coverage. Once all of the tests are implemented, you should be able to achieve this score. To clarify, you only need to reach 96% coverage for the **DUT** only which is my_calc in the screenshot above, you do not need to worry about the coverage of the actual testbench itself.
 
 ### 9. Complete Testplan
 If you have any remaining tests that you didn't implement in your testplan, and you still haven't reached 96% coverage of your DUT, implement additional tasks or assertions based on your testplan to cover edgecases.

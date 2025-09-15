@@ -109,9 +109,28 @@ If you have any remaining tests that you didn't implement in your testplan, and 
 
 2. Completed Testplan document
 
-3. Submit file `calc_sb.svh`, `calc_driver.svh`, `calc_tb_top.sv`
+3. Submit file `calc_sb.svh`, `calc_driver.svh`, `calc_monitor.svh`, `calc_tb_top.sv`
 
 4. Submit `simulation.log` with all testcases PASSED
 
+## Resources
 
+SystemVerilog Class
+- [ChipVerify](https://www.chipverify.com/systemverilog/systemverilog-class)
+- [Doulos](https://www.doulos.com/knowhow/systemverilog/systemverilog-tutorials/systemverilog-classes-tutorial/)
 
+Constrained Random Verification (CRV)
+- [SystemVerilog Randomization](https://www.chipverify.com/systemverilog/systemverilog-randomization)
+- [SystemVerilog Constraints](https://www.chipverify.com/systemverilog/systemverilog-constraints)
+- [CRV](https://www.chipverify.com/verification/constraint-random-verification)
+
+SystemVerilog Assertions (SVA)
+- [Doulos](https://www.doulos.com/knowhow/systemverilog/systemverilog-tutorials/systemverilog-assertions-tutorial/)
+- [systemverilog.io](https://www.systemverilog.io/verification/sva-basics/)
+
+Clocking Block
+- [Doulos](https://www.doulos.com/knowhow/systemverilog/systemverilog-tutorials/systemverilog-clocking-tutorial/)
+- ChipVerify: [Part 1](https://www.chipverify.com/systemverilog/systemverilog-clocking-blocks) and [Part 2](https://www.chipverify.com/systemverilog/systemverilog-clocking-blocks-part2)
+
+Code Coverage
+- [ChipVerify](https://www.chipverify.com/verification/code-coverage)

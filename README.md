@@ -61,10 +61,10 @@ A template of a test plan has been provided for you to fill out. Please use this
 5. For the assertions, make sure to include the full assertion syntax that you would put in your testbench!
 
 ### 2. Environment setup
-1. Make sure you have signed the [EULA](https://eulas.ece.gatech.edu/cadence/) for Cadence software selecting that you are using it for research under advisor Visvesh Sathe and project as SiliconJackets
+1. Make sure you have signed the [Cadence EULA](https://eulas.ece.gatech.edu/cadence/) for Cadence software AND [Synopsys EULA](https://eulas.ece.gatech.edu/synopsys/) for Synopsys software, selecting that you are using it for research under advisor Visvesh Sathe and project as SiliconJackets
 2. ssh onto `ece-rschsrv.ece.gatech.edu` using a method that provides an Xserver for viewing graphical programs such as MobaXterm or FastX
 3. type `tcsh` into the terminal to switch to tcl shell
-4. run `source /tools/software/cadence/setup.csh` to load commands for synopsis tools and optionally add that command to your `.my-cshrc` file in your home directory
+4. run `source /tools/software/cadence/setup.csh` to load commands for Cadence tools and run `source /tools/software/synopsys/setup.csh` for Synopsys tools. Optionally add both commands to your `.my-cshrc` file in your home directory
 5. clone this repo if you haven't already: **git clone &lt;url&gt;**
 
 ### 3. Make sure files compile

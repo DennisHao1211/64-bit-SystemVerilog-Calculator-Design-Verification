@@ -65,7 +65,8 @@ A template of a test plan has been provided for you to fill out. Please use this
 2. ssh onto `ece-rschsrv.ece.gatech.edu` using a method that provides an Xserver for viewing graphical programs such as MobaXterm or FastX
 3. type `tcsh` into the terminal to switch to tcl shell
 4. run `source /tools/software/cadence/setup.csh` to load commands for Cadence tools and run `source /tools/software/synopsys/setup.csh` for Synopsys tools. Optionally add both commands to your `.my-cshrc` file in your home directory
-5. clone this repo if you haven't already: **git clone &lt;url&gt;**
+5. To set up the Verisium Debug waveform viewer, add these two commands to your `.my-cshrc` file in your home directory: `setenv VERISIUM_DEBUG_ROOT "/tools/software/cadence/verisumdbg/latest"` and `setenv PATH "${PATH}:${VERISIUM_DEBUG_ROOT}/bin:${VERISIUM_DEBUG_ROOT}/tools/bin"`
+6. clone this repo if you haven't already: `git clone https://github.gatech.edu/SiliconJackets/New_DV_Onboarding.git`
 
 ### 3. Make sure files compile
 1. Start by editing the files adder32.sv/result_buffer.sv/controller.sv/top_lvl.sv in the src/verilog directory with the changes you made during the digital design onboarding.

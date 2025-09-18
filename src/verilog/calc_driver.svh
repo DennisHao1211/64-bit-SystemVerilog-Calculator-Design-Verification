@@ -32,7 +32,8 @@ class calc_driver #(int DataSize, int AddrSize);
   virtual task start_calc(input logic [AddrSize-1:0] read_start_addr, input logic [AddrSize-1:0] read_end_addr,
       input logic [AddrSize-1:0] write_start_addr, input logic [AddrSize-1:0] write_end_addr,
       input bit direct = 1);
-    
+
+    int delay;
     calc_seq_item #(DataSize, AddrSize) trans;
     // TODO: Drive the calculation parameters to the DUT's interface.
     // HINT: Use calcVif.cb.signal_name <= value;
@@ -41,7 +42,6 @@ class calc_driver #(int DataSize, int AddrSize);
     reset_task();
     @(calcVif.cb iff calcVif.cb.ready);
 
-    int delay;
     if (!direct) begin // Random Mode
       if (drv_box.try_peek(trans)) begin
         delay = $urandom_range(0, 5); // Add a Random delay before the next transaction

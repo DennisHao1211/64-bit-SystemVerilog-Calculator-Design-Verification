@@ -76,14 +76,14 @@ A template of a test plan has been provided for you to fill out. Please use this
 You may have some errors in the output. Figure out what is wrong with the tb file and fix any syntax errors. Rerun each time with `make xrun`.
 
 ### 4. Run testbench for the first time
-The first time you run the tb without errors using `make xrun` the testbench should FAIL for the first test. 
+The first time you run the tb without errors using `make xrun`, the testbench will say "TEST PASSED" even though no tests have been implemented yet.
 
 For waveform and simulation debugging, it is highly recommended to use Verisium Debug. Verisium Debug is an advanced debugging and verification platform from Cadence widely used in hardware design to analyze waveforms, debug RTL code, and validate assertions. It provides a GUI for visualizing signal activity, exploring design hierarchies, and tracking simulation data to pinpoint issues effectively. It also can display the values of the SRAM memory arrays!
 
 To run Verisium Debug, run `make verisium` in MobaXterm (slow) or FastX (recommended). To add signals to the waveform debugger, go to the "Hierarchy" tab below and right-click on a module or a signal after selecting a module to use the "Send to Wave". You need to run the simulation with the play button at the top to generate the values in the waveform viewer. If you add a signal after running the simulation, you'll need to reset the simulation with the back button to the left of the play button, and re-run the simulation. You should cross-reference the waveform with the generated `simulation.log` to effectively debug your design as well as implement the testbench items.
 
-### 5. Rerun testbench after filling out the driver and scoreboard
-Make sure you can pass all the tests.
+### 5. Rerun testbench after filling out the driver, monitor, and scoreboard
+Make sure you can pass all of your tests.
 
 ### 6. Add Assertions to Verify Signal Behavior
 Assertions are essential for automatically validating signal behavior and ensuring that design constraints and requirements are met during simulation. They help identify edge cases, unexpected behaviors, and violations by monitoring signals and conditions concurrently without requiring manual intervention. By providing immediate feedback when failures occur, assertions improve debugging efficiency and enhance the reliability of the design verification process.

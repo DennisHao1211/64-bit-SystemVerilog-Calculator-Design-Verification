@@ -110,7 +110,7 @@ If you have any remaining tests that you didn't implement in your testplan, and 
 
 2. Completed Testplan document
 
-3. Submit file `calc_sb.svh`, `calc_driver.svh`, `calc_monitor.svh`, `calc_tb_top.sv`
+3. Submit file `calc_sb.svh`, `calc_driver.svh`, `calc_monitor.svh`, `calc_seq_item.svh`, `calc_tb_top.sv`
 
 4. Submit `simulation.log` with all testcases PASSED
 

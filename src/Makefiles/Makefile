@@ -62,7 +62,7 @@ vcs: ./Include/${INCLUDE_FILE_NAME}
 		# simv 
 
 verdi:
-	verdi -sv -simBin ./simv \
+	cd $(WORKSPACE) && verdi -sv -simBin ./simv \
 	      -dbdir ./simv.daidir \
     	  -ssf ./simulation.fsdb &
 

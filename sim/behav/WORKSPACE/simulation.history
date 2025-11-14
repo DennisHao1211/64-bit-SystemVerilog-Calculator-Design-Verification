@@ -1,0 +1,2 @@
+#e1(27Sep2025:00:57:32): source ./xcelium.d/env.d/env.history.27Sep2025_00_57_32
+s1(27Sep2025:00:57:32):  xrun -64bit -sv -linedebug -access +rwc -timescale 1ns/10ps +define+SIM=1+CADENCE=1 +testname= +incdir+sym_links -coverage all -licqueue -covoverwrite -f sym_links/sim_no_path.include -logfile simulation.log 

@@ -1,0 +1,22 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-64bit
+-sv
+-linedebug
+-access
++rwc
+-timescale
+1ns/10ps
++define+SIM=1+CADENCE=1
++testname=
++incdir+sym_links
+-coverage
+all
+-licqueue
+-covoverwrite
+-f
+sym_links/sim_no_path.include
+-logfile
+simulation.log

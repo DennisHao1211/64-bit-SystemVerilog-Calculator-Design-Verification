@@ -1,0 +1,3 @@
+SOFTINCLUDE /tools/software/cadence/xcelium/latest/tools/inca/files/cds.lib
+include ../../../../../../../../tools/software/cadence/ic/latest/share/cdssetup/cds.lib
+define worklib ../worklib

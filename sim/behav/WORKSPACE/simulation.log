@@ -1,0 +1,1449 @@
+xrun(64): 25.03-s003: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	25.03-s003: Started on Sep 27, 2025 at 00:57:32 EDT
+xrun
+	-64bit
+	-sv
+	-linedebug
+	-access +rwc
+	-timescale 1ns/10ps
+	+define+SIM=1+CADENCE=1
+	+testname=
+	+incdir+sym_links
+	-coverage all
+	-licqueue
+	-covoverwrite
+	-f sym_links/sim_no_path.include
+		sym_links/calculator_pkg.sv
+		sym_links/adder32.sv
+		sym_links/controller.sv
+		sym_links/full_adder.sv
+		sym_links/result_buffer.sv
+		sym_links/sky130_sram_2kbyte_1rw1r_32x512_8.sv
+		sym_links/top_lvl.sv
+		sym_links/calc_seq_item.svh
+		sym_links/calc_tb_pkg.sv
+		sym_links/calc_driver.svh
+		sym_links/calc_monitor.svh
+		sym_links/calc_sb.svh
+		sym_links/calc_sequencer.svh
+		sym_links/calc_if.sv
+		sym_links/calc_tb_top.sv
+	-logfile simulation.log
+
+   User defined plus("+") options:
+	+testname=
+
+xrun: *W,BADPRF: The -linedebug option may have an adverse performance impact.
+file: sym_links/calculator_pkg.sv
+	package worklib.calculator_pkg:sv
+		errors: 0, warnings: 0
+file: sym_links/adder32.sv
+	module worklib.adder32:sv
+		errors: 0, warnings: 0
+file: sym_links/controller.sv
+	module worklib.controller:sv
+		errors: 0, warnings: 0
+file: sym_links/full_adder.sv
+	module worklib.full_adder:sv
+		errors: 0, warnings: 0
+file: sym_links/result_buffer.sv
+	module worklib.result_buffer:sv
+		errors: 0, warnings: 0
+file: sym_links/sky130_sram_2kbyte_1rw1r_32x512_8.sv
+	module worklib.sky130_sram_2kbyte_1rw1r_32x512_8:sv
+		errors: 0, warnings: 0
+file: sym_links/top_lvl.sv
+	module worklib.top_lvl:sv
+		errors: 0, warnings: 0
+file: sym_links/calc_seq_item.svh
+file: sym_links/calc_tb_pkg.sv
+	package worklib.calc_tb_pkg:sv
+		errors: 0, warnings: 0
+file: sym_links/calc_driver.svh
+file: sym_links/calc_monitor.svh
+file: sym_links/calc_sb.svh
+file: sym_links/calc_sequencer.svh
+file: sym_links/calc_if.sv
+	interface worklib.calc_if:sv
+		errors: 0, warnings: 0
+file: sym_links/calc_tb_top.sv
+	module worklib.calc_tb_top:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		$unit_0x201ca083
+		calculator_pkg
+		calc_tb_pkg
+		calc_tb_top
+
+	Extracting FSMs for coverage:
+		worklib.controller
+			FSM extracted for state register state
+		worklib.sky130_sram_2kbyte_1rw1r_32x512_8
+		worklib.full_adder
+		worklib.adder32
+		worklib.result_buffer
+		worklib.top_lvl
+		worklib.calc_tb_top
+	Total FSMs extracted = 1
+	Building instance overlay tables: ..
+xmelab: *W,COVFDP: FSM description matching across instance of a module for "COVFDM" warning has been moved from elaboration to simulation dumping. To restore old matching behavior, use "set_backward_compat -COVFDM_during_elab". Also, it is recommended to use set_parameterized_module_coverage CCF command to avoid coverage loss due to FSM description difference across instances of a module.
+xmelab: *W,COVFHT: FSM hold transitions (transitions to the current state) are not extracted for any FSM in default mode.
+.................. Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.result_buffer:sv <0x25e2dc93>
+			streams:   5, words:  3099
+		worklib.full_adder:sv <0x6240d8e4>
+			streams:   1, words:  1047
+		worklib.calc_tb_top:sv <0x47553a3d>
+			streams:  93, words: 130746
+		worklib.calc_tb_pkg:sv <0x79a98153>
+			streams:  12, words: 24541
+		worklib.calc_tb_pkg:sv <0x141abe1d>
+			streams:   9, words: 10984
+		worklib.calc_tb_pkg:sv <0x54858497>
+			streams:   8, words: 24173
+		worklib.calc_tb_pkg:sv <0x74716bc9>
+			streams:   8, words: 22325
+		worklib.calc_tb_pkg:sv <0x63c83d33>
+			streams:   8, words:  7505
+		worklib.calc_tb_pkg:sv <0x0680d3ab>
+			streams:   0, words:     0
+		worklib.calc_if:sv <0x76473964>
+			streams:  36, words: 27430
+		worklib.adder32:sv <0x780c9d1d>
+			streams:   4, words:  3715
+		worklib.controller:sv <0x2bc94c7d>
+			streams:  12, words: 27732
+		worklib.top_lvl:sv <0x16b77f81>
+			streams:  39, words: 15536
+		worklib.sky130_sram_2kbyte_1rw1r_32x512_8:sv <0x669e207c>
+			streams:   8, words: 17168
+		worklib.\$unit_0x201ca083 :compilation_unit <0x31b38f76>
+			streams:   0, words:     0
+xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum' command in the coverage configuration file.
+  reg [DATA_WIDTH-1:0]    mem [0:RAM_DEPTH-1];
+                            |
+xmelab: *W,COVMDD (./sym_links/sky130_sram_2kbyte_1rw1r_32x512_8.sv,52|28): Toggle coverage for bit, logic, reg, wire, enum and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage for enum multi-dimensional static arrays specify 'set_toggle_scoring -sv_enum enable_mda' and for other multi-dimensional static arrays, specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                      Instances  Unique
+		Modules:                     39       7
+		Interfaces:                   1       1
+		Verilog packages:             2       2
+		Registers:                  270     301
+		Scalar wires:               253       -
+		Expanded wires:              64       2
+		Vectored wires:              44       -
+		Named events:                 3       3
+		Always blocks:               35      30
+		Initial blocks:              11      12
+		Clocking blocks:              1       1
+		Clocking items:              17      17
+		Parallel blocks:              6       6
+		Cont. assignments:           45      14
+		Pseudo assignments:         141       -
+		Assertions:                  11      11
+		Compilation units:            1       1
+		SV Class declarations:        7      12
+		SV Class specializations:     7       7
+		Simulation timescale:      10ps
+	Writing initial simulation snapshot: worklib.calc_tb_top:sv
+Loading snapshot worklib.calc_tb_top:sv .................... Done
+SVSEED default: 1
+xcelium> source /tools/software/cadence/xcelium/latest/tools/xcelium/files/xmsimrc
+xcelium> run
+Test case 1 - normal addition
+Test case 1 - normal addition (7 + 9 -> 16)
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,379): (time 10275 NS) Assertion calc_tb_top.a_no_en_during_reset has failed
+ASSERT NO_EN_DURING_RESET failed at 1027500
+[1033500] DRIVER: start calc r[16:17] w[16:16]
+     10365 Mon: Read from Addr: 0x10, Data from SRAM A: 0x7, Data from SRAM B: 0x9
+
+[1036500] SB: READ addr_rd=0x10  A=0x7  B=0x9
+     10385 Mon: Read from Addr: 0x11, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1038500] SB: READ addr_rd=0x11  A=0x0  B=0x0
+     10395 Mon: Write to Addr: 0x10, Data to SRAM A (lower 32 bits): 0x10, Data to SRAM B (upper 32 bits): 0x0
+
+[1039500] SB: PASS writing A[0x10] = 0x10
+Test case 2 - addition with overflow
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,379): (time 10475 NS) Assertion calc_tb_top.a_no_en_during_reset has failed
+ASSERT NO_EN_DURING_RESET failed at 1047500
+     10495 Mon: Read from Addr: 0x10, Data from SRAM A: 0x10, Data from SRAM B: 0x0
+
+[1049500] SB: READ addr_rd=0x10  A=0x10  B=0x0
+     10515 Mon: Read from Addr: 0x11, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1051500] SB: READ addr_rd=0x11  A=0x0  B=0x0
+     10525 Mon: Write to Addr: 0x10, Data to SRAM A (lower 32 bits): 0x10, Data to SRAM B (upper 32 bits): 0x0
+
+[1052500] SB: PASS writing A[0x10] = 0x10
+[1053500] DRIVER: start calc r[32:33] w[32:32]
+     10565 Mon: Read from Addr: 0x20, Data from SRAM A: 0xffffffff, Data from SRAM B: 0x1
+
+[1056500] SB: READ addr_rd=0x20  A=0xffffffff  B=0x1
+     10585 Mon: Read from Addr: 0x21, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1058500] SB: READ addr_rd=0x21  A=0x0  B=0x0
+     10595 Mon: Write to Addr: 0x20, Data to SRAM A (lower 32 bits): 0x0, Data to SRAM B (upper 32 bits): 0x0
+
+[1059500] SB: PASS writing A[0x20] = 0x0
+Edge Cases — Zero+Zero / Max+Max / Zero+Max
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,379): (time 10675 NS) Assertion calc_tb_top.a_no_en_during_reset has failed
+ASSERT NO_EN_DURING_RESET failed at 1067500
+     10695 Mon: Read from Addr: 0x20, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1069500] SB: READ addr_rd=0x20  A=0x0  B=0x0
+     10715 Mon: Read from Addr: 0x21, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1071500] SB: READ addr_rd=0x21  A=0x0  B=0x0
+     10725 Mon: Write to Addr: 0x20, Data to SRAM A (lower 32 bits): 0x0, Data to SRAM B (upper 32 bits): 0x0
+
+[1072500] SB: PASS writing A[0x20] = 0x0
+[1073500] DRIVER: start calc r[48:49] w[48:48]
+     10765 Mon: Read from Addr: 0x30, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1076500] SB: READ addr_rd=0x30  A=0x0  B=0x0
+     10785 Mon: Read from Addr: 0x31, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1078500] SB: READ addr_rd=0x31  A=0x0  B=0x0
+     10795 Mon: Write to Addr: 0x30, Data to SRAM A (lower 32 bits): 0x0, Data to SRAM B (upper 32 bits): 0x0
+
+[1079500] SB: PASS writing A[0x30] = 0x0
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,379): (time 10855 NS) Assertion calc_tb_top.a_no_en_during_reset has failed
+ASSERT NO_EN_DURING_RESET failed at 1085500
+     10875 Mon: Read from Addr: 0x30, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1087500] SB: READ addr_rd=0x30  A=0x0  B=0x0
+     10895 Mon: Read from Addr: 0x31, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1089500] SB: READ addr_rd=0x31  A=0x0  B=0x0
+     10905 Mon: Write to Addr: 0x30, Data to SRAM A (lower 32 bits): 0x0, Data to SRAM B (upper 32 bits): 0x0
+
+[1090500] SB: PASS writing A[0x30] = 0x0
+[1091500] DRIVER: start calc r[64:65] w[64:64]
+     10945 Mon: Read from Addr: 0x40, Data from SRAM A: 0xffffffff, Data from SRAM B: 0xffffffff
+
+[1094500] SB: READ addr_rd=0x40  A=0xffffffff  B=0xffffffff
+     10965 Mon: Read from Addr: 0x41, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1096500] SB: READ addr_rd=0x41  A=0x0  B=0x0
+     10975 Mon: Write to Addr: 0x40, Data to SRAM A (lower 32 bits): 0xfffffffe, Data to SRAM B (upper 32 bits): 0x0
+
+[1097500] SB: PASS writing A[0x40] = 0xfffffffe
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,379): (time 11035 NS) Assertion calc_tb_top.a_no_en_during_reset has failed
+ASSERT NO_EN_DURING_RESET failed at 1103500
+     11055 Mon: Read from Addr: 0x40, Data from SRAM A: 0xfffffffe, Data from SRAM B: 0x0
+
+[1105500] SB: READ addr_rd=0x40  A=0xfffffffe  B=0x0
+     11075 Mon: Read from Addr: 0x41, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1107500] SB: READ addr_rd=0x41  A=0x0  B=0x0
+     11085 Mon: Write to Addr: 0x40, Data to SRAM A (lower 32 bits): 0xfffffffe, Data to SRAM B (upper 32 bits): 0x0
+
+[1108500] SB: PASS writing A[0x40] = 0xfffffffe
+[1109500] DRIVER: start calc r[80:81] w[80:80]
+     11125 Mon: Read from Addr: 0x50, Data from SRAM A: 0x0, Data from SRAM B: 0xffffffff
+
+[1112500] SB: READ addr_rd=0x50  A=0x0  B=0xffffffff
+     11145 Mon: Read from Addr: 0x51, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1114500] SB: READ addr_rd=0x51  A=0x0  B=0x0
+     11155 Mon: Write to Addr: 0x50, Data to SRAM A (lower 32 bits): 0xffffffff, Data to SRAM B (upper 32 bits): 0x0
+
+[1115500] SB: PASS writing A[0x50] = 0xffffffff
+Directed coverage for read_start_addr
+[1121500] DRIVER: start calc r[1:2] w[16:17]
+     11245 Mon: Read from Addr: 0x1, Data from SRAM A: 0x8484d609, Data from SRAM B: 0xb1f05663
+
+[1124500] SB: READ addr_rd=0x1  A=0x8484d609  B=0xb1f05663
+     11265 Mon: Read from Addr: 0x2, Data from SRAM A: 0x6b97b0d, Data from SRAM B: 0x46df998d
+
+[1126500] SB: READ addr_rd=0x2  A=0x6b97b0d  B=0x46df998d
+     11275 Mon: Write to Addr: 0x10, Data to SRAM A (lower 32 bits): 0x36752c6c, Data to SRAM B (upper 32 bits): 0x4d99149a
+
+[1127500] SB: PASS writing A[0x10] = 0x36752c6c
+     11295 Mon: Read from Addr: 0x3, Data from SRAM A: 0xb2c28465, Data from SRAM B: 0x89375212
+
+[1129500] SB: READ addr_rd=0x3  A=0xb2c28465  B=0x89375212
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,387): (time 11305 NS) Assertion calc_tb_top.a_rd_addr_in_window has failed
+ASSERT RD_ADDR_WINDOW failed at 1130500: rd_addr=0x4 win=[0x1:0x2(+1)]
+     11315 Mon: Read from Addr: 0x4, Data from SRAM A: 0xf3e301, Data from SRAM B: 0x6d7cd0d
+
+[1131500] SB: READ addr_rd=0x4  A=0xf3e301  B=0x6d7cd0d
+     11325 Mon: Write to Addr: 0x11, Data to SRAM A (lower 32 bits): 0x3bf9d677, Data to SRAM B (upper 32 bits): 0x7cbb00e
+
+[1132500] SB: PASS writing A[0x11] = 0x3bf9d677
+[1137500] DRIVER: start calc r[2:3] w[18:19]
+     11405 Mon: Read from Addr: 0x2, Data from SRAM A: 0x6b97b0d, Data from SRAM B: 0x46df998d
+
+[1140500] SB: READ addr_rd=0x2  A=0x6b97b0d  B=0x46df998d
+     11425 Mon: Read from Addr: 0x3, Data from SRAM A: 0xb2c28465, Data from SRAM B: 0x89375212
+
+[1142500] SB: READ addr_rd=0x3  A=0xb2c28465  B=0x89375212
+     11435 Mon: Write to Addr: 0x12, Data to SRAM A (lower 32 bits): 0x4d99149a, Data to SRAM B (upper 32 bits): 0x3bf9d677
+
+[1143500] SB: PASS writing A[0x12] = 0x4d99149a
+     11455 Mon: Read from Addr: 0x4, Data from SRAM A: 0xf3e301, Data from SRAM B: 0x6d7cd0d
+
+[1145500] SB: READ addr_rd=0x4  A=0xf3e301  B=0x6d7cd0d
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,387): (time 11465 NS) Assertion calc_tb_top.a_rd_addr_in_window has failed
+ASSERT RD_ADDR_WINDOW failed at 1146500: rd_addr=0x5 win=[0x2:0x3(+1)]
+     11475 Mon: Read from Addr: 0x5, Data from SRAM A: 0x3b23f176, Data from SRAM B: 0x1e8dcd3d
+
+[1147500] SB: READ addr_rd=0x5  A=0x3b23f176  B=0x1e8dcd3d
+     11485 Mon: Write to Addr: 0x13, Data to SRAM A (lower 32 bits): 0x7cbb00e, Data to SRAM B (upper 32 bits): 0x59b1beb3
+
+[1148500] SB: PASS writing A[0x13] = 0x7cbb00e
+[1153500] DRIVER: start calc r[4:5] w[20:21]
+     11565 Mon: Read from Addr: 0x4, Data from SRAM A: 0xf3e301, Data from SRAM B: 0x6d7cd0d
+
+[1156500] SB: READ addr_rd=0x4  A=0xf3e301  B=0x6d7cd0d
+     11585 Mon: Read from Addr: 0x5, Data from SRAM A: 0x3b23f176, Data from SRAM B: 0x1e8dcd3d
+
+[1158500] SB: READ addr_rd=0x5  A=0x3b23f176  B=0x1e8dcd3d
+     11595 Mon: Write to Addr: 0x14, Data to SRAM A (lower 32 bits): 0x7cbb00e, Data to SRAM B (upper 32 bits): 0x59b1beb3
+
+[1159500] SB: PASS writing A[0x14] = 0x7cbb00e
+     11615 Mon: Read from Addr: 0x6, Data from SRAM A: 0x76d457ed, Data from SRAM B: 0x462df78c
+
+[1161500] SB: READ addr_rd=0x6  A=0x76d457ed  B=0x462df78c
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,387): (time 11625 NS) Assertion calc_tb_top.a_rd_addr_in_window has failed
+ASSERT RD_ADDR_WINDOW failed at 1162500: rd_addr=0x7 win=[0x4:0x5(+1)]
+     11635 Mon: Read from Addr: 0x7, Data from SRAM A: 0x7cfde9f9, Data from SRAM B: 0xe33724c6
+
+[1163500] SB: READ addr_rd=0x7  A=0x7cfde9f9  B=0xe33724c6
+     11645 Mon: Write to Addr: 0x15, Data to SRAM A (lower 32 bits): 0xbd024f79, Data to SRAM B (upper 32 bits): 0x60350ebf
+
+[1164500] SB: PASS writing A[0x15] = 0xbd024f79
+[1169500] DRIVER: start calc r[8:9] w[24:25]
+     11725 Mon: Read from Addr: 0x8, Data from SRAM A: 0xe2f784c5, Data from SRAM B: 0xd513d2aa
+
+[1172500] SB: READ addr_rd=0x8  A=0xe2f784c5  B=0xd513d2aa
+     11745 Mon: Read from Addr: 0x9, Data from SRAM A: 0x72aff7e5, Data from SRAM B: 0xbbd27277
+
+[1174500] SB: READ addr_rd=0x9  A=0x72aff7e5  B=0xbbd27277
+     11755 Mon: Write to Addr: 0x18, Data to SRAM A (lower 32 bits): 0xb80b576f, Data to SRAM B (upper 32 bits): 0x2e826a5c
+
+[1175500] SB: PASS writing A[0x18] = 0xb80b576f
+     11775 Mon: Read from Addr: 0xa, Data from SRAM A: 0x8932d612, Data from SRAM B: 0x47ecdb8f
+
+[1177500] SB: READ addr_rd=0xa  A=0x8932d612  B=0x47ecdb8f
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,387): (time 11785 NS) Assertion calc_tb_top.a_rd_addr_in_window has failed
+ASSERT RD_ADDR_WINDOW failed at 1178500: rd_addr=0xb win=[0x8:0x9(+1)]
+     11795 Mon: Read from Addr: 0xb, Data from SRAM A: 0x793069f2, Data from SRAM B: 0xe77696ce
+
+[1179500] SB: READ addr_rd=0xb  A=0x793069f2  B=0xe77696ce
+     11805 Mon: Write to Addr: 0x19, Data to SRAM A (lower 32 bits): 0xd11fb1a1, Data to SRAM B (upper 32 bits): 0x60a700c0
+
+[1180500] SB: PASS writing A[0x19] = 0xd11fb1a1
+[1185500] DRIVER: start calc r[128:129] w[32:33]
+     11885 Mon: Read from Addr: 0x80, Data from SRAM A: 0x4465e788, Data from SRAM B: 0xd73fb4ae
+
+[1188500] SB: READ addr_rd=0x80  A=0x4465e788  B=0xd73fb4ae
+     11905 Mon: Read from Addr: 0x81, Data from SRAM A: 0x4df3819b, Data from SRAM B: 0x493e4592
+
+[1190500] SB: READ addr_rd=0x81  A=0x4df3819b  B=0x493e4592
+     11915 Mon: Write to Addr: 0x20, Data to SRAM A (lower 32 bits): 0x1ba59c36, Data to SRAM B (upper 32 bits): 0x9731c72d
+
+[1191500] SB: PASS writing A[0x20] = 0x1ba59c36
+     11935 Mon: Read from Addr: 0x82, Data from SRAM A: 0x1444df28, Data from SRAM B: 0x9684e02d
+
+[1193500] SB: READ addr_rd=0x82  A=0x1444df28  B=0x9684e02d
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,387): (time 11945 NS) Assertion calc_tb_top.a_rd_addr_in_window has failed
+ASSERT RD_ADDR_WINDOW failed at 1194500: rd_addr=0x83 win=[0x80:0x81(+1)]
+     11955 Mon: Read from Addr: 0x83, Data from SRAM A: 0x25b75f4b, Data from SRAM B: 0xe169b0c2
+
+[1195500] SB: READ addr_rd=0x83  A=0x25b75f4b  B=0xe169b0c2
+     11965 Mon: Write to Addr: 0x21, Data to SRAM A (lower 32 bits): 0xaac9bf55, Data to SRAM B (upper 32 bits): 0x721100d
+
+[1196500] SB: PASS writing A[0x21] = 0xaac9bf55
+[1201500] DRIVER: start calc r[0:1] w[48:49]
+     12045 Mon: Read from Addr: 0x0, Data from SRAM A: 0x12153524, Data from SRAM B: 0xc0895e81
+
+[1204500] SB: READ addr_rd=0x0  A=0x12153524  B=0xc0895e81
+     12065 Mon: Read from Addr: 0x1, Data from SRAM A: 0x8484d609, Data from SRAM B: 0xb1f05663
+
+[1206500] SB: READ addr_rd=0x1  A=0x8484d609  B=0xb1f05663
+     12075 Mon: Write to Addr: 0x30, Data to SRAM A (lower 32 bits): 0xd29e93a5, Data to SRAM B (upper 32 bits): 0x36752c6c
+
+[1207500] SB: PASS writing A[0x30] = 0xd29e93a5
+     12095 Mon: Read from Addr: 0x2, Data from SRAM A: 0x6b97b0d, Data from SRAM B: 0x46df998d
+
+[1209500] SB: READ addr_rd=0x2  A=0x6b97b0d  B=0x46df998d
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,387): (time 12105 NS) Assertion calc_tb_top.a_rd_addr_in_window has failed
+ASSERT RD_ADDR_WINDOW failed at 1210500: rd_addr=0x3 win=[0x0:0x1(+1)]
+     12115 Mon: Read from Addr: 0x3, Data from SRAM A: 0xb2c28465, Data from SRAM B: 0x89375212
+
+[1211500] SB: READ addr_rd=0x3  A=0xb2c28465  B=0x89375212
+     12125 Mon: Write to Addr: 0x31, Data to SRAM A (lower 32 bits): 0x4d99149a, Data to SRAM B (upper 32 bits): 0x3bf9d677
+
+[1212500] SB: PASS writing A[0x31] = 0x4d99149a
+[1217500] DRIVER: start calc r[510:511] w[64:65]
+     12205 Mon: Read from Addr: 0x1fe, Data from SRAM A: 0xce03ec9c, Data from SRAM B: 0x17b47f2f
+
+[1220500] SB: READ addr_rd=0x1fe  A=0xce03ec9c  B=0x17b47f2f
+     12225 Mon: Read from Addr: 0x1ff, Data from SRAM A: 0xa22ac644, Data from SRAM B: 0xcdbf3a9b
+
+[1222500] SB: READ addr_rd=0x1ff  A=0xa22ac644  B=0xcdbf3a9b
+     12235 Mon: Write to Addr: 0x40, Data to SRAM A (lower 32 bits): 0xe5b86bcb, Data to SRAM B (upper 32 bits): 0x6fea00df
+
+[1223500] SB: PASS writing A[0x40] = 0xe5b86bcb
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,387): (time 12245 NS) Assertion calc_tb_top.a_rd_addr_in_window has failed
+ASSERT RD_ADDR_WINDOW failed at 1224500: rd_addr=0x0 win=[0x1fe:0x1ff(+1)]
+     12255 Mon: Read from Addr: 0x0, Data from SRAM A: 0x12153524, Data from SRAM B: 0xc0895e81
+
+[1225500] SB: READ addr_rd=0x0  A=0x12153524  B=0xc0895e81
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,387): (time 12265 NS) Assertion calc_tb_top.a_rd_addr_in_window has failed
+ASSERT RD_ADDR_WINDOW failed at 1226500: rd_addr=0x1 win=[0x1fe:0x1ff(+1)]
+     12275 Mon: Read from Addr: 0x1, Data from SRAM A: 0x8484d609, Data from SRAM B: 0xb1f05663
+
+[1227500] SB: READ addr_rd=0x1  A=0x8484d609  B=0xb1f05663
+     12285 Mon: Write to Addr: 0x41, Data to SRAM A (lower 32 bits): 0xd29e93a5, Data to SRAM B (upper 32 bits): 0x36752c6c
+
+[1228500] SB: PASS writing A[0x41] = 0xd29e93a5
+Directed: invalid READ window (rs > re)
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,379): (time 12365 NS) Assertion calc_tb_top.a_no_en_during_reset has failed
+ASSERT NO_EN_DURING_RESET failed at 1236500
+Directed: invalid WRITE window (ws > we)
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,379): (time 12415 NS) Assertion calc_tb_top.a_no_en_during_reset has failed
+ASSERT NO_EN_DURING_RESET failed at 1241500
+Directed: both READ & WRITE invalid
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,379): (time 12465 NS) Assertion calc_tb_top.a_no_en_during_reset has failed
+ASSERT NO_EN_DURING_RESET failed at 1246500
+Randomized Testing
+[1250500] DRIVER: start calc r[188:189] w[188:188]
+     12535 Mon: Read from Addr: 0xbc, Data from SRAM A: 0x297a1552, Data from SRAM B: 0x7c1e5bf8
+
+[1253500] SB: READ addr_rd=0xbc  A=0x297a1552  B=0x7c1e5bf8
+     12555 Mon: Read from Addr: 0xbd, Data from SRAM A: 0x46dcb78d, Data from SRAM B: 0xa95fc452
+
+[1255500] SB: READ addr_rd=0xbd  A=0x46dcb78d  B=0xa95fc452
+     12565 Mon: Write to Addr: 0xbc, Data to SRAM A (lower 32 bits): 0xa598714a, Data to SRAM B (upper 32 bits): 0xf03c7bdf
+
+[1256500] SB: PASS writing A[0xbc] = 0xa598714a
+[1260500] DRIVER: start calc r[249:250] w[249:249]
+     12635 Mon: Read from Addr: 0xf9, Data from SRAM A: 0x6a9fb9d5, Data from SRAM B: 0x3437d568
+
+[1263500] SB: READ addr_rd=0xf9  A=0x6a9fb9d5  B=0x3437d568
+     12655 Mon: Read from Addr: 0xfa, Data from SRAM A: 0x786271f0, Data from SRAM B: 0xd57800aa
+
+[1265500] SB: READ addr_rd=0xfa  A=0x786271f0  B=0xd57800aa
+     12665 Mon: Write to Addr: 0xf9, Data to SRAM A (lower 32 bits): 0x9ed78f3d, Data to SRAM B (upper 32 bits): 0x4dda729a
+
+[1266500] SB: PASS writing A[0xf9] = 0x9ed78f3d
+[1273500] DRIVER: start calc r[81:82] w[81:81]
+     12765 Mon: Read from Addr: 0x51, Data from SRAM A: 0x0, Data from SRAM B: 0x0
+
+[1276500] SB: READ addr_rd=0x51  A=0x0  B=0x0
+     12785 Mon: Read from Addr: 0x52, Data from SRAM A: 0xe3c530c7, Data from SRAM B: 0x975c9c2e
+
+[1278500] SB: READ addr_rd=0x52  A=0xe3c530c7  B=0x975c9c2e
+     12795 Mon: Write to Addr: 0x51, Data to SRAM A (lower 32 bits): 0x0, Data to SRAM B (upper 32 bits): 0x7b21ccf5
+
+[1279500] SB: PASS writing A[0x51] = 0x0
+[1285500] DRIVER: start calc r[18:19] w[18:18]
+     12885 Mon: Read from Addr: 0x12, Data from SRAM A: 0x4d99149a, Data from SRAM B: 0x3bf9d677
+
+[1288500] SB: READ addr_rd=0x12  A=0x4d99149a  B=0x3bf9d677
+     12905 Mon: Read from Addr: 0x13, Data from SRAM A: 0x7cbb00e, Data from SRAM B: 0x59b1beb3
+
+[1290500] SB: READ addr_rd=0x13  A=0x7cbb00e  B=0x59b1beb3
+     12915 Mon: Write to Addr: 0x12, Data to SRAM A (lower 32 bits): 0x8992eb11, Data to SRAM B (upper 32 bits): 0x617d6ec1
+
+[1291500] SB: PASS writing A[0x12] = 0x8992eb11
+[1298500] DRIVER: start calc r[234:235] w[234:234]
+     13015 Mon: Read from Addr: 0xea, Data from SRAM A: 0x6a15f5d4, Data from SRAM B: 0x3878707
+
+[1301500] SB: READ addr_rd=0xea  A=0x6a15f5d4  B=0x3878707
+     13035 Mon: Read from Addr: 0xeb, Data from SRAM A: 0x3b0b9776, Data from SRAM B: 0x74a1ade9
+
+[1303500] SB: READ addr_rd=0xeb  A=0x3b0b9776  B=0x74a1ade9
+     13045 Mon: Write to Addr: 0xea, Data to SRAM A (lower 32 bits): 0x6d9d7cdb, Data to SRAM B (upper 32 bits): 0xafad455f
+
+[1304500] SB: PASS writing A[0xea] = 0x6d9d7cdb
+[1313500] DRIVER: start calc r[62:63] w[62:62]
+     13165 Mon: Read from Addr: 0x3e, Data from SRAM A: 0xda8ae2b5, Data from SRAM B: 0xefbe94df
+
+[1316500] SB: READ addr_rd=0x3e  A=0xda8ae2b5  B=0xefbe94df
+     13185 Mon: Read from Addr: 0x3f, Data from SRAM A: 0x3cf11979, Data from SRAM B: 0x2231ff44
+
+[1318500] SB: READ addr_rd=0x3f  A=0x3cf11979  B=0x2231ff44
+     13195 Mon: Write to Addr: 0x3e, Data to SRAM A (lower 32 bits): 0xca497794, Data to SRAM B (upper 32 bits): 0x5f2318bd
+
+[1319500] SB: PASS writing A[0x3e] = 0xca497794
+[1326500] DRIVER: start calc r[129:130] w[129:129]
+     13295 Mon: Read from Addr: 0x81, Data from SRAM A: 0x4df3819b, Data from SRAM B: 0x493e4592
+
+[1329500] SB: READ addr_rd=0x81  A=0x4df3819b  B=0x493e4592
+     13315 Mon: Read from Addr: 0x82, Data from SRAM A: 0x1444df28, Data from SRAM B: 0x9684e02d
+
+[1331500] SB: READ addr_rd=0x82  A=0x1444df28  B=0x9684e02d
+     13325 Mon: Write to Addr: 0x81, Data to SRAM A (lower 32 bits): 0x9731c72d, Data to SRAM B (upper 32 bits): 0xaac9bf55
+
+[1332500] SB: PASS writing A[0x81] = 0x9731c72d
+[1338500] DRIVER: start calc r[81:82] w[81:81]
+     13415 Mon: Read from Addr: 0x51, Data from SRAM A: 0x0, Data from SRAM B: 0x7b21ccf5
+
+[1341500] SB: READ addr_rd=0x51  A=0x0  B=0x7b21ccf5
+     13435 Mon: Read from Addr: 0x52, Data from SRAM A: 0xe3c530c7, Data from SRAM B: 0x975c9c2e
+
+[1343500] SB: READ addr_rd=0x52  A=0xe3c530c7  B=0x975c9c2e
+     13445 Mon: Write to Addr: 0x51, Data to SRAM A (lower 32 bits): 0x7b21ccf5, Data to SRAM B (upper 32 bits): 0x7b21ccf5
+
+[1344500] SB: PASS writing A[0x51] = 0x7b21ccf5
+[1353500] DRIVER: start calc r[224:225] w[224:224]
+     13565 Mon: Read from Addr: 0xe0, Data from SRAM A: 0x87e44c0f, Data from SRAM B: 0xb4e8d669
+
+[1356500] SB: READ addr_rd=0xe0  A=0x87e44c0f  B=0xb4e8d669
+     13585 Mon: Read from Addr: 0xe1, Data from SRAM A: 0x8653620c, Data from SRAM B: 0x2ca81959
+
+[1358500] SB: READ addr_rd=0xe1  A=0x8653620c  B=0x2ca81959
+     13595 Mon: Write to Addr: 0xe0, Data to SRAM A (lower 32 bits): 0x3ccd2278, Data to SRAM B (upper 32 bits): 0xb2fb7b65
+
+[1359500] SB: PASS writing A[0xe0] = 0x3ccd2278
+[1364500] DRIVER: start calc r[14:15] w[14:14]
+     13675 Mon: Read from Addr: 0xe, Data from SRAM A: 0x96ab582d, Data from SRAM B: 0xb2a72665
+
+[1367500] SB: READ addr_rd=0xe  A=0x96ab582d  B=0xb2a72665
+     13695 Mon: Read from Addr: 0xf, Data from SRAM A: 0xb1ef6263, Data from SRAM B: 0x573870a
+
+[1369500] SB: READ addr_rd=0xf  A=0xb1ef6263  B=0x573870a
+     13705 Mon: Write to Addr: 0xe, Data to SRAM A (lower 32 bits): 0x49527e92, Data to SRAM B (upper 32 bits): 0xb762e96d
+
+[1370500] SB: PASS writing A[0xe] = 0x49527e92
+[1377500] DRIVER: start calc r[205:206] w[205:205]
+     13805 Mon: Read from Addr: 0xcd, Data from SRAM A: 0x895f911, Data from SRAM B: 0x746affe8
+
+[1380500] SB: READ addr_rd=0xcd  A=0x895f911  B=0x746affe8
+     13825 Mon: Read from Addr: 0xce, Data from SRAM A: 0xa5e79e4b, Data from SRAM B: 0x39e48173
+
+[1382500] SB: READ addr_rd=0xce  A=0xa5e79e4b  B=0x39e48173
+     13835 Mon: Write to Addr: 0xcd, Data to SRAM A (lower 32 bits): 0x7d00f8f9, Data to SRAM B (upper 32 bits): 0xdfcc1fbe
+
+[1383500] SB: PASS writing A[0xcd] = 0x7d00f8f9
+[1389500] DRIVER: start calc r[234:235] w[234:234]
+     13925 Mon: Read from Addr: 0xea, Data from SRAM A: 0x6d9d7cdb, Data from SRAM B: 0xafad455f
+
+[1392500] SB: READ addr_rd=0xea  A=0x6d9d7cdb  B=0xafad455f
+     13945 Mon: Read from Addr: 0xeb, Data from SRAM A: 0x3b0b9776, Data from SRAM B: 0x74a1ade9
+
+[1394500] SB: READ addr_rd=0xeb  A=0x3b0b9776  B=0x74a1ade9
+     13955 Mon: Write to Addr: 0xea, Data to SRAM A (lower 32 bits): 0x1d4ac23a, Data to SRAM B (upper 32 bits): 0xafad455f
+
+[1395500] SB: PASS writing A[0xea] = 0x1d4ac23a
+[1399500] DRIVER: start calc r[114:115] w[114:114]
+     14025 Mon: Read from Addr: 0x72, Data from SRAM A: 0x35a0c96b, Data from SRAM B: 0xe3b7aec7
+
+[1402500] SB: READ addr_rd=0x72  A=0x35a0c96b  B=0xe3b7aec7
+     14045 Mon: Read from Addr: 0x73, Data from SRAM A: 0x5b0bddb6, Data from SRAM B: 0x5d059dba
+
+[1404500] SB: READ addr_rd=0x73  A=0x5b0bddb6  B=0x5d059dba
+     14055 Mon: Write to Addr: 0x72, Data to SRAM A (lower 32 bits): 0x19587832, Data to SRAM B (upper 32 bits): 0xb8117b70
+
+[1405500] SB: PASS writing A[0x72] = 0x19587832
+[1413500] DRIVER: start calc r[45:46] w[45:45]
+     14165 Mon: Read from Addr: 0x2d, Data from SRAM A: 0xbb825a77, Data from SRAM B: 0x1ef2ed3d
+
+[1416500] SB: READ addr_rd=0x2d  A=0xbb825a77  B=0x1ef2ed3d
+     14185 Mon: Read from Addr: 0x2e, Data from SRAM A: 0x90cdb12, Data from SRAM B: 0xbf05007e
+
+[1418500] SB: READ addr_rd=0x2e  A=0x90cdb12  B=0xbf05007e
+     14195 Mon: Write to Addr: 0x2d, Data to SRAM A (lower 32 bits): 0xda7547b4, Data to SRAM B (upper 32 bits): 0xc811db90
+
+[1419500] SB: PASS writing A[0x2d] = 0xda7547b4
+[1426500] DRIVER: start calc r[45:46] w[45:45]
+     14295 Mon: Read from Addr: 0x2d, Data from SRAM A: 0xda7547b4, Data from SRAM B: 0xc811db90
+
+[1429500] SB: READ addr_rd=0x2d  A=0xda7547b4  B=0xc811db90
+     14315 Mon: Read from Addr: 0x2e, Data from SRAM A: 0x90cdb12, Data from SRAM B: 0xbf05007e
+
+[1431500] SB: READ addr_rd=0x2e  A=0x90cdb12  B=0xbf05007e
+     14325 Mon: Write to Addr: 0x2d, Data to SRAM A (lower 32 bits): 0xa2872344, Data to SRAM B (upper 32 bits): 0xc811db90
+
+[1432500] SB: PASS writing A[0x2d] = 0xa2872344
+[1438500] DRIVER: start calc r[75:76] w[75:75]
+     14415 Mon: Read from Addr: 0x4b, Data from SRAM A: 0x6cb0b7d9, Data from SRAM B: 0xb6a4266d
+
+[1441500] SB: READ addr_rd=0x4b  A=0x6cb0b7d9  B=0xb6a4266d
+     14435 Mon: Read from Addr: 0x4c, Data from SRAM A: 0xbb45e276, Data from SRAM B: 0x653b49ca
+
+[1443500] SB: READ addr_rd=0x4c  A=0xbb45e276  B=0x653b49ca
+     14445 Mon: Write to Addr: 0x4b, Data to SRAM A (lower 32 bits): 0x2354de46, Data to SRAM B (upper 32 bits): 0x20812c40
+
+[1444500] SB: PASS writing A[0x4b] = 0x2354de46
+[1452500] DRIVER: start calc r[253:254] w[253:253]
+     14555 Mon: Read from Addr: 0xfd, Data from SRAM A: 0xf161dce2, Data from SRAM B: 0x1e664d3c
+
+[1455500] SB: READ addr_rd=0xfd  A=0xf161dce2  B=0x1e664d3c
+     14575 Mon: Read from Addr: 0xfe, Data from SRAM A: 0xd4b5e6a9, Data from SRAM B: 0x77ebb1ef
+
+[1457500] SB: READ addr_rd=0xfe  A=0xd4b5e6a9  B=0x77ebb1ef
+     14585 Mon: Write to Addr: 0xfd, Data to SRAM A (lower 32 bits): 0xfc82a1e, Data to SRAM B (upper 32 bits): 0x4ca19898
+
+[1458500] SB: PASS writing A[0xfd] = 0xfc82a1e
+[1463500] DRIVER: start calc r[118:119] w[118:118]
+     14665 Mon: Read from Addr: 0x76, Data from SRAM A: 0x3fbb3b7f, Data from SRAM B: 0xc3339086
+
+[1466500] SB: READ addr_rd=0x76  A=0x3fbb3b7f  B=0xc3339086
+     14685 Mon: Read from Addr: 0x77, Data from SRAM A: 0x7d6df5fa, Data from SRAM B: 0xf92794f2
+
+[1468500] SB: READ addr_rd=0x77  A=0x7d6df5fa  B=0xf92794f2
+     14695 Mon: Write to Addr: 0x76, Data to SRAM A (lower 32 bits): 0x2eecc05, Data to SRAM B (upper 32 bits): 0x76958aec
+
+[1469500] SB: PASS writing A[0x76] = 0x2eecc05
+[1475500] DRIVER: start calc r[55:56] w[55:55]
+     14785 Mon: Read from Addr: 0x37, Data from SRAM A: 0x39961773, Data from SRAM B: 0xd18bb4a3
+
+[1478500] SB: READ addr_rd=0x37  A=0x39961773  B=0xd18bb4a3
+     14805 Mon: Read from Addr: 0x38, Data from SRAM A: 0x9799a82f, Data from SRAM B: 0xd9d292b3
+
+[1480500] SB: READ addr_rd=0x38  A=0x9799a82f  B=0xd9d292b3
+     14815 Mon: Write to Addr: 0x37, Data to SRAM A (lower 32 bits): 0xb21cc16, Data to SRAM B (upper 32 bits): 0x716c3ae2
+
+[1481500] SB: PASS writing A[0x37] = 0xb21cc16
+[1489500] DRIVER: start calc r[58:59] w[58:58]
+     14925 Mon: Read from Addr: 0x3a, Data from SRAM A: 0x7bf8fdf7, Data from SRAM B: 0xe59b36cb
+
+[1492500] SB: READ addr_rd=0x3a  A=0x7bf8fdf7  B=0xe59b36cb
+     14945 Mon: Read from Addr: 0x3b, Data from SRAM A: 0xf3091ae6, Data from SRAM B: 0x2d28db5a
+
+[1494500] SB: READ addr_rd=0x3b  A=0xf3091ae6  B=0x2d28db5a
+     14955 Mon: Write to Addr: 0x3a, Data to SRAM A (lower 32 bits): 0x619434c2, Data to SRAM B (upper 32 bits): 0x2031f640
+
+[1495500] SB: PASS writing A[0x3a] = 0x619434c2
+[1502500] DRIVER: start calc r[34:35] w[34:34]
+     15055 Mon: Read from Addr: 0x22, Data from SRAM A: 0xbf23327e, Data from SRAM B: 0xaaa4b15
+
+[1505500] SB: READ addr_rd=0x22  A=0xbf23327e  B=0xaaa4b15
+     15075 Mon: Read from Addr: 0x23, Data from SRAM A: 0x78d99bf1, Data from SRAM B: 0x6c9c4bd9
+
+[1507500] SB: READ addr_rd=0x23  A=0x78d99bf1  B=0x6c9c4bd9
+     15085 Mon: Write to Addr: 0x22, Data to SRAM A (lower 32 bits): 0xc9cd7d93, Data to SRAM B (upper 32 bits): 0xe575e7ca
+
+[1508500] SB: PASS writing A[0x22] = 0xc9cd7d93
+[1512500] DRIVER: start calc r[97:98] w[97:97]
+     15155 Mon: Read from Addr: 0x61, Data from SRAM A: 0xe7c3b6cf, Data from SRAM B: 0x3ced2b79
+
+[1515500] SB: READ addr_rd=0x61  A=0xe7c3b6cf  B=0x3ced2b79
+     15175 Mon: Read from Addr: 0x62, Data from SRAM A: 0xfd28e4fa, Data from SRAM B: 0xb0bcee61
+
+[1517500] SB: READ addr_rd=0x62  A=0xfd28e4fa  B=0xb0bcee61
+     15185 Mon: Write to Addr: 0x61, Data to SRAM A (lower 32 bits): 0x24b0e248, Data to SRAM B (upper 32 bits): 0xade5d35b
+
+[1518500] SB: PASS writing A[0x61] = 0x24b0e248
+[1525500] DRIVER: start calc r[150:151] w[150:150]
+     15285 Mon: Read from Addr: 0x96, Data from SRAM A: 0x158b2b2b, Data from SRAM B: 0x7ab11bf5
+
+[1528500] SB: READ addr_rd=0x96  A=0x158b2b2b  B=0x7ab11bf5
+     15305 Mon: Read from Addr: 0x97, Data from SRAM A: 0x56b403ad, Data from SRAM B: 0x93c12227
+
+[1530500] SB: READ addr_rd=0x97  A=0x56b403ad  B=0x93c12227
+     15315 Mon: Write to Addr: 0x96, Data to SRAM A (lower 32 bits): 0x903c4720, Data to SRAM B (upper 32 bits): 0xea7525d4
+
+[1531500] SB: PASS writing A[0x96] = 0x903c4720
+[1536500] DRIVER: start calc r[213:214] w[213:213]
+     15395 Mon: Read from Addr: 0xd5, Data from SRAM A: 0xecb91ad9, Data from SRAM B: 0x1000b720
+
+[1539500] SB: READ addr_rd=0xd5  A=0xecb91ad9  B=0x1000b720
+     15415 Mon: Read from Addr: 0xd6, Data from SRAM A: 0x8e054c1c, Data from SRAM B: 0x49b16f93
+
+[1541500] SB: READ addr_rd=0xd6  A=0x8e054c1c  B=0x49b16f93
+     15425 Mon: Write to Addr: 0xd5, Data to SRAM A (lower 32 bits): 0xfcb9d1f9, Data to SRAM B (upper 32 bits): 0xd7b6bbaf
+
+[1542500] SB: PASS writing A[0xd5] = 0xfcb9d1f9
+[1547500] DRIVER: start calc r[116:117] w[116:116]
+     15505 Mon: Read from Addr: 0x74, Data from SRAM A: 0x6216abc4, Data from SRAM B: 0x5c8295b9
+
+[1550500] SB: READ addr_rd=0x74  A=0x6216abc4  B=0x5c8295b9
+     15525 Mon: Read from Addr: 0x75, Data from SRAM A: 0x492fd392, Data from SRAM B: 0xda269ab4
+
+[1552500] SB: READ addr_rd=0x75  A=0x492fd392  B=0xda269ab4
+     15535 Mon: Write to Addr: 0x74, Data to SRAM A (lower 32 bits): 0xbe99417d, Data to SRAM B (upper 32 bits): 0x23566e46
+
+[1553500] SB: PASS writing A[0x74] = 0xbe99417d
+[1557500] DRIVER: start calc r[193:194] w[193:193]
+     15605 Mon: Read from Addr: 0xc1, Data from SRAM A: 0x427b5784, Data from SRAM B: 0xd55bbcaa
+
+[1560500] SB: READ addr_rd=0xc1  A=0x427b5784  B=0xd55bbcaa
+     15625 Mon: Read from Addr: 0xc2, Data from SRAM A: 0x3e6f0f7c, Data from SRAM B: 0xb0520260
+
+[1562500] SB: READ addr_rd=0xc2  A=0x3e6f0f7c  B=0xb0520260
+     15635 Mon: Write to Addr: 0xc1, Data to SRAM A (lower 32 bits): 0x17d7142e, Data to SRAM B (upper 32 bits): 0xeec111dc
+
+[1563500] SB: PASS writing A[0xc1] = 0x17d7142e
+[1570500] DRIVER: start calc r[84:85] w[84:84]
+     15735 Mon: Read from Addr: 0x54, Data from SRAM A: 0xfea7a6fd, Data from SRAM B: 0x149e0729
+
+[1573500] SB: READ addr_rd=0x54  A=0xfea7a6fd  B=0x149e0729
+     15755 Mon: Read from Addr: 0x55, Data from SRAM A: 0x8e37901c, Data from SRAM B: 0x43356786
+
+[1575500] SB: READ addr_rd=0x55  A=0x8e37901c  B=0x43356786
+     15765 Mon: Write to Addr: 0x54, Data to SRAM A (lower 32 bits): 0x1345ae26, Data to SRAM B (upper 32 bits): 0xd16cf7a2
+
+[1576500] SB: PASS writing A[0x54] = 0x1345ae26
+[1583500] DRIVER: start calc r[112:113] w[112:112]
+     15865 Mon: Read from Addr: 0x70, Data from SRAM A: 0xbccfa879, Data from SRAM B: 0x6464e3c8
+
+[1586500] SB: READ addr_rd=0x70  A=0xbccfa879  B=0x6464e3c8
+     15885 Mon: Read from Addr: 0x71, Data from SRAM A: 0x652345ca, Data from SRAM B: 0x9ff4113
+
+[1588500] SB: READ addr_rd=0x71  A=0x652345ca  B=0x9ff4113
+     15895 Mon: Write to Addr: 0x70, Data to SRAM A (lower 32 bits): 0x21348c41, Data to SRAM B (upper 32 bits): 0x6f2286dd
+
+[1589500] SB: PASS writing A[0x70] = 0x21348c41
+[1593500] DRIVER: start calc r[134:135] w[134:134]
+     15965 Mon: Read from Addr: 0x86, Data from SRAM A: 0x68ae1bd1, Data from SRAM B: 0xc3761c86
+
+[1596500] SB: READ addr_rd=0x86  A=0x68ae1bd1  B=0xc3761c86
+     15985 Mon: Read from Addr: 0x87, Data from SRAM A: 0xa0c02441, Data from SRAM B: 0x9dbf643b
+
+[1598500] SB: READ addr_rd=0x87  A=0xa0c02441  B=0x9dbf643b
+     15995 Mon: Write to Addr: 0x86, Data to SRAM A (lower 32 bits): 0x2c243857, Data to SRAM B (upper 32 bits): 0x3e7f887c
+
+[1599500] SB: PASS writing A[0x86] = 0x2c243857
+[1606500] DRIVER: start calc r[166:167] w[166:166]
+     16095 Mon: Read from Addr: 0xa6, Data from SRAM A: 0xd86a6ab0, Data from SRAM B: 0x1e1c873c
+
+[1609500] SB: READ addr_rd=0xa6  A=0xd86a6ab0  B=0x1e1c873c
+     16115 Mon: Read from Addr: 0xa7, Data from SRAM A: 0x1521932a, Data from SRAM B: 0x3124d362
+
+[1611500] SB: READ addr_rd=0xa7  A=0x1521932a  B=0x3124d362
+     16125 Mon: Write to Addr: 0xa6, Data to SRAM A (lower 32 bits): 0xf686f1ec, Data to SRAM B (upper 32 bits): 0x4646668c
+
+[1612500] SB: PASS writing A[0xa6] = 0xf686f1ec
+[1620500] DRIVER: start calc r[52:53] w[52:52]
+     16235 Mon: Read from Addr: 0x34, Data from SRAM A: 0x2c156358, Data from SRAM B: 0xc33f3886
+
+[1623500] SB: READ addr_rd=0x34  A=0x2c156358  B=0xc33f3886
+     16255 Mon: Read from Addr: 0x35, Data from SRAM A: 0xc71a0c8e, Data from SRAM B: 0xce2ff29c
+
+[1625500] SB: READ addr_rd=0x35  A=0xc71a0c8e  B=0xce2ff29c
+     16265 Mon: Write to Addr: 0x34, Data to SRAM A (lower 32 bits): 0xef549bde, Data to SRAM B (upper 32 bits): 0x9549ff2a
+
+[1626500] SB: PASS writing A[0x34] = 0xef549bde
+[1634500] DRIVER: start calc r[235:236] w[235:235]
+     16375 Mon: Read from Addr: 0xeb, Data from SRAM A: 0x3b0b9776, Data from SRAM B: 0x74a1ade9
+
+[1637500] SB: READ addr_rd=0xeb  A=0x3b0b9776  B=0x74a1ade9
+     16395 Mon: Read from Addr: 0xec, Data from SRAM A: 0x45e28b8b, Data from SRAM B: 0xf25f01
+
+[1639500] SB: READ addr_rd=0xec  A=0x45e28b8b  B=0xf25f01
+     16405 Mon: Write to Addr: 0xeb, Data to SRAM A (lower 32 bits): 0xafad455f, Data to SRAM B (upper 32 bits): 0x46d4ea8c
+
+[1640500] SB: PASS writing A[0xeb] = 0xafad455f
+[1649500] DRIVER: start calc r[189:190] w[189:189]
+     16525 Mon: Read from Addr: 0xbd, Data from SRAM A: 0x46dcb78d, Data from SRAM B: 0xa95fc452
+
+[1652500] SB: READ addr_rd=0xbd  A=0x46dcb78d  B=0xa95fc452
+     16545 Mon: Read from Addr: 0xbe, Data from SRAM A: 0x4219e784, Data from SRAM B: 0x236afd46
+
+[1654500] SB: READ addr_rd=0xbe  A=0x4219e784  B=0x236afd46
+     16555 Mon: Write to Addr: 0xbd, Data to SRAM A (lower 32 bits): 0xf03c7bdf, Data to SRAM B (upper 32 bits): 0x6584e4ca
+
+[1655500] SB: PASS writing A[0xbd] = 0xf03c7bdf
+[1661500] DRIVER: start calc r[234:235] w[234:234]
+     16645 Mon: Read from Addr: 0xea, Data from SRAM A: 0x1d4ac23a, Data from SRAM B: 0xafad455f
+
+[1664500] SB: READ addr_rd=0xea  A=0x1d4ac23a  B=0xafad455f
+     16665 Mon: Read from Addr: 0xeb, Data from SRAM A: 0xafad455f, Data from SRAM B: 0x46d4ea8c
+
+[1666500] SB: READ addr_rd=0xeb  A=0xafad455f  B=0x46d4ea8c
+     16675 Mon: Write to Addr: 0xea, Data to SRAM A (lower 32 bits): 0xccf80799, Data to SRAM B (upper 32 bits): 0xf6822feb
+
+[1667500] SB: PASS writing A[0xea] = 0xccf80799
+[1674500] DRIVER: start calc r[204:205] w[204:204]
+     16775 Mon: Read from Addr: 0xcc, Data from SRAM A: 0x3e9b707, Data from SRAM B: 0xb522406a
+
+[1677500] SB: READ addr_rd=0xcc  A=0x3e9b707  B=0xb522406a
+     16795 Mon: Read from Addr: 0xcd, Data from SRAM A: 0x7d00f8f9, Data from SRAM B: 0xdfcc1fbe
+
+[1679500] SB: READ addr_rd=0xcd  A=0x7d00f8f9  B=0xdfcc1fbe
+     16805 Mon: Write to Addr: 0xcc, Data to SRAM A (lower 32 bits): 0xb90bf771, Data to SRAM B (upper 32 bits): 0x5ccd18b7
+
+[1680500] SB: PASS writing A[0xcc] = 0xb90bf771
+[1685500] DRIVER: start calc r[137:138] w[137:137]
+     16885 Mon: Read from Addr: 0x89, Data from SRAM A: 0xab196256, Data from SRAM B: 0xadac225b
+
+[1688500] SB: READ addr_rd=0x89  A=0xab196256  B=0xadac225b
+     16905 Mon: Read from Addr: 0x8a, Data from SRAM A: 0xf166fae2, Data from SRAM B: 0x8273e204
+
+[1690500] SB: READ addr_rd=0x8a  A=0xf166fae2  B=0x8273e204
+     16915 Mon: Write to Addr: 0x89, Data to SRAM A (lower 32 bits): 0x58c584b1, Data to SRAM B (upper 32 bits): 0x73dadce6
+
+[1691500] SB: PASS writing A[0x89] = 0x58c584b1
+[1697500] DRIVER: start calc r[29:30] w[29:29]
+     17005 Mon: Read from Addr: 0x1d, Data from SRAM A: 0x634bf9c6, Data from SRAM B: 0x571513ae
+
+[1700500] SB: READ addr_rd=0x1d  A=0x634bf9c6  B=0x571513ae
+     17025 Mon: Read from Addr: 0x1e, Data from SRAM A: 0xde7502bc, Data from SRAM B: 0x150fdd2a
+
+[1702500] SB: READ addr_rd=0x1e  A=0xde7502bc  B=0x150fdd2a
+     17035 Mon: Write to Addr: 0x1d, Data to SRAM A (lower 32 bits): 0xba610d74, Data to SRAM B (upper 32 bits): 0xf384dfe6
+
+[1703500] SB: PASS writing A[0x1d] = 0xba610d74
+[1709500] DRIVER: start calc r[19:20] w[19:19]
+     17125 Mon: Read from Addr: 0x13, Data from SRAM A: 0x7cbb00e, Data from SRAM B: 0x59b1beb3
+
+[1712500] SB: READ addr_rd=0x13  A=0x7cbb00e  B=0x59b1beb3
+     17145 Mon: Read from Addr: 0x14, Data from SRAM A: 0x7cbb00e, Data from SRAM B: 0x59b1beb3
+
+[1714500] SB: READ addr_rd=0x14  A=0x7cbb00e  B=0x59b1beb3
+     17155 Mon: Write to Addr: 0x13, Data to SRAM A (lower 32 bits): 0x617d6ec1, Data to SRAM B (upper 32 bits): 0x617d6ec1
+
+[1715500] SB: PASS writing A[0x13] = 0x617d6ec1
+[1724500] DRIVER: start calc r[116:117] w[116:116]
+     17275 Mon: Read from Addr: 0x74, Data from SRAM A: 0xbe99417d, Data from SRAM B: 0x23566e46
+
+[1727500] SB: READ addr_rd=0x74  A=0xbe99417d  B=0x23566e46
+     17295 Mon: Read from Addr: 0x75, Data from SRAM A: 0x492fd392, Data from SRAM B: 0xda269ab4
+
+[1729500] SB: READ addr_rd=0x75  A=0x492fd392  B=0xda269ab4
+     17305 Mon: Write to Addr: 0x74, Data to SRAM A (lower 32 bits): 0xe1efafc3, Data to SRAM B (upper 32 bits): 0x23566e46
+
+[1730500] SB: PASS writing A[0x74] = 0xe1efafc3
+[1739500] DRIVER: start calc r[232:233] w[232:232]
+     17425 Mon: Read from Addr: 0xe8, Data from SRAM A: 0xc378ee86, Data from SRAM B: 0x984d5a30
+
+[1742500] SB: READ addr_rd=0xe8  A=0xc378ee86  B=0x984d5a30
+     17445 Mon: Read from Addr: 0xe9, Data from SRAM A: 0x3bed5377, Data from SRAM B: 0x5ad6c7b5
+
+[1744500] SB: READ addr_rd=0xe9  A=0x3bed5377  B=0x5ad6c7b5
+     17455 Mon: Write to Addr: 0xe8, Data to SRAM A (lower 32 bits): 0x5bc648b6, Data to SRAM B (upper 32 bits): 0x96c41b2c
+
+[1745500] SB: PASS writing A[0xe8] = 0x5bc648b6
+[1754500] DRIVER: start calc r[225:226] w[225:225]
+     17575 Mon: Read from Addr: 0xe1, Data from SRAM A: 0x8653620c, Data from SRAM B: 0x2ca81959
+
+[1757500] SB: READ addr_rd=0xe1  A=0x8653620c  B=0x2ca81959
+     17595 Mon: Read from Addr: 0xe2, Data from SRAM A: 0x62fd49c5, Data from SRAM B: 0x67d735cf
+
+[1759500] SB: READ addr_rd=0xe2  A=0x62fd49c5  B=0x67d735cf
+     17605 Mon: Write to Addr: 0xe1, Data to SRAM A (lower 32 bits): 0xb2fb7b65, Data to SRAM B (upper 32 bits): 0xcad47f94
+
+[1760500] SB: PASS writing A[0xe1] = 0xb2fb7b65
+[1765500] DRIVER: start calc r[110:111] w[110:110]
+     17685 Mon: Read from Addr: 0x6e, Data from SRAM A: 0x155a1d2a, Data from SRAM B: 0xc6b5f48d
+
+[1768500] SB: READ addr_rd=0x6e  A=0x155a1d2a  B=0xc6b5f48d
+     17705 Mon: Read from Addr: 0x6f, Data from SRAM A: 0x4f75ff9e, Data from SRAM B: 0x9c6de638
+
+[1770500] SB: READ addr_rd=0x6f  A=0x4f75ff9e  B=0x9c6de638
+     17715 Mon: Write to Addr: 0x6e, Data to SRAM A (lower 32 bits): 0xdc1011b7, Data to SRAM B (upper 32 bits): 0xebe3e5d6
+
+[1771500] SB: PASS writing A[0x6e] = 0xdc1011b7
+[1776500] DRIVER: start calc r[74:75] w[74:74]
+     17795 Mon: Read from Addr: 0x4a, Data from SRAM A: 0x6dcb69db, Data from SRAM B: 0xa6fcde4d
+
+[1779500] SB: READ addr_rd=0x4a  A=0x6dcb69db  B=0xa6fcde4d
+     17815 Mon: Read from Addr: 0x4b, Data from SRAM A: 0x2354de46, Data from SRAM B: 0x20812c40
+
+[1781500] SB: READ addr_rd=0x4b  A=0x2354de46  B=0x20812c40
+     17825 Mon: Write to Addr: 0x4a, Data to SRAM A (lower 32 bits): 0x14c84828, Data to SRAM B (upper 32 bits): 0x43d60a86
+
+[1782500] SB: PASS writing A[0x4a] = 0x14c84828
+[1786500] DRIVER: start calc r[149:150] w[149:149]
+     17895 Mon: Read from Addr: 0x95, Data from SRAM A: 0x2ac2d555, Data from SRAM B: 0xf6c38eed
+
+[1789500] SB: READ addr_rd=0x95  A=0x2ac2d555  B=0xf6c38eed
+     17915 Mon: Read from Addr: 0x96, Data from SRAM A: 0x903c4720, Data from SRAM B: 0xea7525d4
+
+[1791500] SB: READ addr_rd=0x96  A=0x903c4720  B=0xea7525d4
+     17925 Mon: Write to Addr: 0x95, Data to SRAM A (lower 32 bits): 0x21866442, Data to SRAM B (upper 32 bits): 0x7ab16cf4
+
+[1792500] SB: PASS writing A[0x95] = 0x21866442
+[1799500] DRIVER: start calc r[142:143] w[142:142]
+     18025 Mon: Read from Addr: 0x8e, Data from SRAM A: 0xd0c5dca1, Data from SRAM B: 0x15890f2b
+
+[1802500] SB: READ addr_rd=0x8e  A=0xd0c5dca1  B=0x15890f2b
+     18045 Mon: Read from Addr: 0x8f, Data from SRAM A: 0x40905d81, Data from SRAM B: 0x641b85c8
+
+[1804500] SB: READ addr_rd=0x8f  A=0x40905d81  B=0x641b85c8
+     18055 Mon: Write to Addr: 0x8e, Data to SRAM A (lower 32 bits): 0xe64eebcc, Data to SRAM B (upper 32 bits): 0xa4abe349
+
+[1805500] SB: PASS writing A[0x8e] = 0xe64eebcc
+[1812500] DRIVER: start calc r[16:17] w[16:16]
+     18155 Mon: Read from Addr: 0x10, Data from SRAM A: 0x36752c6c, Data from SRAM B: 0x4d99149a
+
+[1815500] SB: READ addr_rd=0x10  A=0x36752c6c  B=0x4d99149a
+     18175 Mon: Read from Addr: 0x11, Data from SRAM A: 0x3bf9d677, Data from SRAM B: 0x7cbb00e
+
+[1817500] SB: READ addr_rd=0x11  A=0x3bf9d677  B=0x7cbb00e
+     18185 Mon: Write to Addr: 0x10, Data to SRAM A (lower 32 bits): 0x840e4106, Data to SRAM B (upper 32 bits): 0x43c58685
+
+[1818500] SB: PASS writing A[0x10] = 0x840e4106
+[1826500] DRIVER: start calc r[20:21] w[20:20]
+     18295 Mon: Read from Addr: 0x14, Data from SRAM A: 0x7cbb00e, Data from SRAM B: 0x59b1beb3
+
+[1829500] SB: READ addr_rd=0x14  A=0x7cbb00e  B=0x59b1beb3
+     18315 Mon: Read from Addr: 0x15, Data from SRAM A: 0xbd024f79, Data from SRAM B: 0x60350ebf
+
+[1831500] SB: READ addr_rd=0x15  A=0xbd024f79  B=0x60350ebf
+     18325 Mon: Write to Addr: 0x14, Data to SRAM A (lower 32 bits): 0x617d6ec1, Data to SRAM B (upper 32 bits): 0x1d375e38
+
+[1832500] SB: PASS writing A[0x14] = 0x617d6ec1
+[1840500] DRIVER: start calc r[212:213] w[212:212]
+     18435 Mon: Read from Addr: 0xd4, Data from SRAM A: 0x41103982, Data from SRAM B: 0x24d2bf49
+
+[1843500] SB: READ addr_rd=0xd4  A=0x41103982  B=0x24d2bf49
+     18455 Mon: Read from Addr: 0xd5, Data from SRAM A: 0xfcb9d1f9, Data from SRAM B: 0xd7b6bbaf
+
+[1845500] SB: READ addr_rd=0xd5  A=0xfcb9d1f9  B=0xd7b6bbaf
+     18465 Mon: Write to Addr: 0xd4, Data to SRAM A (lower 32 bits): 0x65e2f8cb, Data to SRAM B (upper 32 bits): 0xd4708da8
+
+[1846500] SB: PASS writing A[0xd4] = 0x65e2f8cb
+[1852500] DRIVER: start calc r[253:254] w[253:253]
+     18555 Mon: Read from Addr: 0xfd, Data from SRAM A: 0xfc82a1e, Data from SRAM B: 0x4ca19898
+
+[1855500] SB: READ addr_rd=0xfd  A=0xfc82a1e  B=0x4ca19898
+     18575 Mon: Read from Addr: 0xfe, Data from SRAM A: 0xd4b5e6a9, Data from SRAM B: 0x77ebb1ef
+
+[1857500] SB: READ addr_rd=0xfe  A=0xd4b5e6a9  B=0x77ebb1ef
+     18585 Mon: Write to Addr: 0xfd, Data to SRAM A (lower 32 bits): 0x5c69c2b6, Data to SRAM B (upper 32 bits): 0x4ca19898
+
+[1858500] SB: PASS writing A[0xfd] = 0x5c69c2b6
+[1864500] DRIVER: start calc r[165:166] w[165:165]
+     18675 Mon: Read from Addr: 0xa5, Data from SRAM A: 0x3a625f74, Data from SRAM B: 0x1cde7139
+
+[1867500] SB: READ addr_rd=0xa5  A=0x3a625f74  B=0x1cde7139
+     18695 Mon: Read from Addr: 0xa6, Data from SRAM A: 0xf686f1ec, Data from SRAM B: 0x4646668c
+
+[1869500] SB: READ addr_rd=0xa6  A=0xf686f1ec  B=0x4646668c
+     18705 Mon: Write to Addr: 0xa5, Data to SRAM A (lower 32 bits): 0x5740d0ad, Data to SRAM B (upper 32 bits): 0x3ccd5878
+
+[1870500] SB: PASS writing A[0xa5] = 0x5740d0ad
+[1875500] DRIVER: start calc r[146:147] w[146:146]
+     18785 Mon: Read from Addr: 0x92, Data from SRAM A: 0x2c2d2358, Data from SRAM B: 0xcb5c8096
+
+[1878500] SB: READ addr_rd=0x92  A=0x2c2d2358  B=0xcb5c8096
+     18805 Mon: Read from Addr: 0x93, Data from SRAM A: 0xa6e9314, Data from SRAM B: 0x8919b412
+
+[1880500] SB: READ addr_rd=0x93  A=0xa6e9314  B=0x8919b412
+     18815 Mon: Write to Addr: 0x92, Data to SRAM A (lower 32 bits): 0xf789a3ee, Data to SRAM B (upper 32 bits): 0x93884726
+
+[1881500] SB: PASS writing A[0x92] = 0xf789a3ee
+[1890500] DRIVER: start calc r[212:213] w[212:212]
+     18935 Mon: Read from Addr: 0xd4, Data from SRAM A: 0x65e2f8cb, Data from SRAM B: 0xd4708da8
+
+[1893500] SB: READ addr_rd=0xd4  A=0x65e2f8cb  B=0xd4708da8
+     18955 Mon: Read from Addr: 0xd5, Data from SRAM A: 0xfcb9d1f9, Data from SRAM B: 0xd7b6bbaf
+
+[1895500] SB: READ addr_rd=0xd5  A=0xfcb9d1f9  B=0xd7b6bbaf
+     18965 Mon: Write to Addr: 0xd4, Data to SRAM A (lower 32 bits): 0x3a538673, Data to SRAM B (upper 32 bits): 0xd4708da8
+
+[1896500] SB: PASS writing A[0xd4] = 0x3a538673
+[1904500] DRIVER: start calc r[99:100] w[99:99]
+     19075 Mon: Read from Addr: 0x63, Data from SRAM A: 0xb940917, Data from SRAM B: 0xd0f578a1
+
+[1907500] SB: READ addr_rd=0x63  A=0xb940917  B=0xd0f578a1
+     19095 Mon: Read from Addr: 0x64, Data from SRAM A: 0x43779186, Data from SRAM B: 0xa8639650
+
+[1909500] SB: READ addr_rd=0x64  A=0x43779186  B=0xa8639650
+     19105 Mon: Write to Addr: 0x63, Data to SRAM A (lower 32 bits): 0xdc8981b8, Data to SRAM B (upper 32 bits): 0xebdb27d6
+
+[1910500] SB: PASS writing A[0x63] = 0xdc8981b8
+[1914500] DRIVER: start calc r[104:105] w[104:104]
+     19175 Mon: Read from Addr: 0x68, Data from SRAM A: 0x25b27b4b, Data from SRAM B: 0xb98c4273
+
+[1917500] SB: READ addr_rd=0x68  A=0x25b27b4b  B=0xb98c4273
+     19195 Mon: Read from Addr: 0x69, Data from SRAM A: 0xf622e6ec, Data from SRAM B: 0xc550168a
+
+[1919500] SB: READ addr_rd=0x69  A=0xf622e6ec  B=0xc550168a
+     19205 Mon: Write to Addr: 0x68, Data to SRAM A (lower 32 bits): 0xdf3ebdbe, Data to SRAM B (upper 32 bits): 0xbb72fd76
+
+[1920500] SB: PASS writing A[0x68] = 0xdf3ebdbe
+[1928500] DRIVER: start calc r[104:105] w[104:104]
+     19315 Mon: Read from Addr: 0x68, Data from SRAM A: 0xdf3ebdbe, Data from SRAM B: 0xbb72fd76
+
+[1931500] SB: READ addr_rd=0x68  A=0xdf3ebdbe  B=0xbb72fd76
+     19335 Mon: Read from Addr: 0x69, Data from SRAM A: 0xf622e6ec, Data from SRAM B: 0xc550168a
+
+[1933500] SB: READ addr_rd=0x69  A=0xf622e6ec  B=0xc550168a
+     19345 Mon: Write to Addr: 0x68, Data to SRAM A (lower 32 bits): 0x9ab1bb34, Data to SRAM B (upper 32 bits): 0xbb72fd76
+
+[1934500] SB: PASS writing A[0x68] = 0x9ab1bb34
+[1943500] DRIVER: start calc r[59:60] w[59:59]
+     19465 Mon: Read from Addr: 0x3b, Data from SRAM A: 0xf3091ae6, Data from SRAM B: 0x2d28db5a
+
+[1946500] SB: READ addr_rd=0x3b  A=0xf3091ae6  B=0x2d28db5a
+     19485 Mon: Read from Addr: 0x3c, Data from SRAM A: 0x14cfc129, Data from SRAM B: 0xf682e2ed
+
+[1948500] SB: READ addr_rd=0x3c  A=0x14cfc129  B=0xf682e2ed
+     19495 Mon: Write to Addr: 0x3b, Data to SRAM A (lower 32 bits): 0x2031f640, Data to SRAM B (upper 32 bits): 0xb52a416
+
+[1949500] SB: PASS writing A[0x3b] = 0x2031f640
+[1955500] DRIVER: start calc r[131:132] w[131:131]
+     19585 Mon: Read from Addr: 0x83, Data from SRAM A: 0x25b75f4b, Data from SRAM B: 0xe169b0c2
+
+[1958500] SB: READ addr_rd=0x83  A=0x25b75f4b  B=0xe169b0c2
+     19605 Mon: Read from Addr: 0x84, Data from SRAM A: 0x8f1cf61e, Data from SRAM B: 0x6b3050d
+
+[1960500] SB: READ addr_rd=0x84  A=0x8f1cf61e  B=0x6b3050d
+     19615 Mon: Write to Addr: 0x83, Data to SRAM A (lower 32 bits): 0x721100d, Data to SRAM B (upper 32 bits): 0x95cffb2b
+
+[1961500] SB: PASS writing A[0x83] = 0x721100d
+[1970500] DRIVER: start calc r[65:66] w[65:65]
+     19735 Mon: Read from Addr: 0x41, Data from SRAM A: 0xd29e93a5, Data from SRAM B: 0x36752c6c
+
+[1973500] SB: READ addr_rd=0x41  A=0xd29e93a5  B=0x36752c6c
+     19755 Mon: Read from Addr: 0x42, Data from SRAM A: 0x6e5daddc, Data from SRAM B: 0xcd5ebc9a
+
+[1975500] SB: READ addr_rd=0x42  A=0x6e5daddc  B=0xcd5ebc9a
+     19765 Mon: Write to Addr: 0x41, Data to SRAM A (lower 32 bits): 0x913c011, Data to SRAM B (upper 32 bits): 0x3bbc6a76
+
+[1976500] SB: PASS writing A[0x41] = 0x913c011
+[1984500] DRIVER: start calc r[91:92] w[91:91]
+     19875 Mon: Read from Addr: 0x5b, Data from SRAM A: 0xdcf000b9, Data from SRAM B: 0x1b876137
+
+[1987500] SB: READ addr_rd=0x5b  A=0xdcf000b9  B=0x1b876137
+     19895 Mon: Read from Addr: 0x5c, Data from SRAM A: 0x4b273796, Data from SRAM B: 0x603921c0
+
+[1989500] SB: READ addr_rd=0x5c  A=0x4b273796  B=0x603921c0
+     19905 Mon: Write to Addr: 0x5b, Data to SRAM A (lower 32 bits): 0xf87761f0, Data to SRAM B (upper 32 bits): 0xab605956
+
+[1990500] SB: PASS writing A[0x5b] = 0xf87761f0
+[1994500] DRIVER: start calc r[154:155] w[154:154]
+     19975 Mon: Read from Addr: 0x9a, Data from SRAM A: 0xa4da5649, Data from SRAM B: 0x6de5bbdb
+
+[1997500] SB: READ addr_rd=0x9a  A=0xa4da5649  B=0x6de5bbdb
+     19995 Mon: Read from Addr: 0x9b, Data from SRAM A: 0x64ba0fc9, Data from SRAM B: 0x2883b151
+
+[1999500] SB: READ addr_rd=0x9b  A=0x64ba0fc9  B=0x2883b151
+     20005 Mon: Write to Addr: 0x9a, Data to SRAM A (lower 32 bits): 0x12c01224, Data to SRAM B (upper 32 bits): 0x8d3dc11a
+
+[2000500] SB: PASS writing A[0x9a] = 0x12c01224
+[2006500] DRIVER: start calc r[106:107] w[106:106]
+     20095 Mon: Read from Addr: 0x6a, Data from SRAM A: 0x2758d14e, Data from SRAM B: 0xd44b80a8
+
+[2009500] SB: READ addr_rd=0x6a  A=0x2758d14e  B=0xd44b80a8
+     20115 Mon: Read from Addr: 0x6b, Data from SRAM A: 0x549efda9, Data from SRAM B: 0xd0ca8ca1
+
+[2011500] SB: READ addr_rd=0x6b  A=0x549efda9  B=0xd0ca8ca1
+     20125 Mon: Write to Addr: 0x6a, Data to SRAM A (lower 32 bits): 0xfba451f6, Data to SRAM B (upper 32 bits): 0x25698a4a
+
+[2012500] SB: PASS writing A[0x6a] = 0xfba451f6
+[2018500] DRIVER: start calc r[164:165] w[164:164]
+     20215 Mon: Read from Addr: 0xa4, Data from SRAM A: 0xe2bf1ac5, Data from SRAM B: 0x602831c0
+
+[2021500] SB: READ addr_rd=0xa4  A=0xe2bf1ac5  B=0x602831c0
+     20235 Mon: Read from Addr: 0xa5, Data from SRAM A: 0x5740d0ad, Data from SRAM B: 0x3ccd5878
+
+[2023500] SB: READ addr_rd=0xa5  A=0x5740d0ad  B=0x3ccd5878
+     20245 Mon: Write to Addr: 0xa4, Data to SRAM A (lower 32 bits): 0x42e74c85, Data to SRAM B (upper 32 bits): 0x940e2925
+
+[2024500] SB: PASS writing A[0xa4] = 0x42e74c85
+[2028500] DRIVER: start calc r[216:217] w[216:216]
+     20315 Mon: Read from Addr: 0xd8, Data from SRAM A: 0xe471f8c8, Data from SRAM B: 0xaed72e5d
+
+[2031500] SB: READ addr_rd=0xd8  A=0xe471f8c8  B=0xaed72e5d
+     20335 Mon: Read from Addr: 0xd9, Data from SRAM A: 0x1d3f9d3a, Data from SRAM B: 0x4226a984
+
+[2033500] SB: READ addr_rd=0xd9  A=0x1d3f9d3a  B=0x4226a984
+     20345 Mon: Write to Addr: 0xd8, Data to SRAM A (lower 32 bits): 0x93492725, Data to SRAM B (upper 32 bits): 0x5f6646be
+
+[2034500] SB: PASS writing A[0xd8] = 0x93492725
+[2041500] DRIVER: start calc r[1:2] w[1:1]
+     20445 Mon: Read from Addr: 0x1, Data from SRAM A: 0x8484d609, Data from SRAM B: 0xb1f05663
+
+[2044500] SB: READ addr_rd=0x1  A=0x8484d609  B=0xb1f05663
+     20465 Mon: Read from Addr: 0x2, Data from SRAM A: 0x6b97b0d, Data from SRAM B: 0x46df998d
+
+[2046500] SB: READ addr_rd=0x2  A=0x6b97b0d  B=0x46df998d
+     20475 Mon: Write to Addr: 0x1, Data to SRAM A (lower 32 bits): 0x36752c6c, Data to SRAM B (upper 32 bits): 0x4d99149a
+
+[2047500] SB: PASS writing A[0x1] = 0x36752c6c
+[2053500] DRIVER: start calc r[40:41] w[40:40]
+     20565 Mon: Read from Addr: 0x28, Data from SRAM A: 0xadcbc05b, Data from SRAM B: 0x44de3789
+
+[2056500] SB: READ addr_rd=0x28  A=0xadcbc05b  B=0x44de3789
+     20585 Mon: Read from Addr: 0x29, Data from SRAM A: 0xa4ae3249, Data from SRAM B: 0xe8233ed0
+
+[2058500] SB: READ addr_rd=0x29  A=0xa4ae3249  B=0xe8233ed0
+     20595 Mon: Write to Addr: 0x28, Data to SRAM A (lower 32 bits): 0xf2a9f7e4, Data to SRAM B (upper 32 bits): 0x8cd17119
+
+[2059500] SB: PASS writing A[0x28] = 0xf2a9f7e4
+[2066500] DRIVER: start calc r[225:226] w[225:225]
+     20695 Mon: Read from Addr: 0xe1, Data from SRAM A: 0xb2fb7b65, Data from SRAM B: 0xcad47f94
+
+[2069500] SB: READ addr_rd=0xe1  A=0xb2fb7b65  B=0xcad47f94
+     20715 Mon: Read from Addr: 0xe2, Data from SRAM A: 0x62fd49c5, Data from SRAM B: 0x67d735cf
+
+[2071500] SB: READ addr_rd=0xe2  A=0x62fd49c5  B=0x67d735cf
+     20725 Mon: Write to Addr: 0xe1, Data to SRAM A (lower 32 bits): 0x7dcffaf9, Data to SRAM B (upper 32 bits): 0xcad47f94
+
+[2072500] SB: PASS writing A[0xe1] = 0x7dcffaf9
+[2079500] DRIVER: start calc r[73:74] w[73:73]
+     20825 Mon: Read from Addr: 0x49, Data from SRAM A: 0x823f2c04, Data from SRAM B: 0xacb7ca59
+
+[2082500] SB: READ addr_rd=0x49  A=0x823f2c04  B=0xacb7ca59
+     20845 Mon: Read from Addr: 0x4a, Data from SRAM A: 0x14c84828, Data from SRAM B: 0x43d60a86
+
+[2084500] SB: READ addr_rd=0x4a  A=0x14c84828  B=0x43d60a86
+     20855 Mon: Write to Addr: 0x49, Data to SRAM A (lower 32 bits): 0x2ef6f65d, Data to SRAM B (upper 32 bits): 0x589e52ae
+
+[2085500] SB: PASS writing A[0x49] = 0x2ef6f65d
+[2091500] DRIVER: start calc r[141:142] w[141:141]
+     20945 Mon: Read from Addr: 0x8d, Data from SRAM A: 0x9c811239, Data from SRAM B: 0xf287b6e5
+
+[2094500] SB: READ addr_rd=0x8d  A=0x9c811239  B=0xf287b6e5
+     20965 Mon: Read from Addr: 0x8e, Data from SRAM A: 0xe64eebcc, Data from SRAM B: 0xa4abe349
+
+[2096500] SB: READ addr_rd=0x8e  A=0xe64eebcc  B=0xa4abe349
+     20975 Mon: Write to Addr: 0x8d, Data to SRAM A (lower 32 bits): 0x8f08c91e, Data to SRAM B (upper 32 bits): 0x8afacf15
+
+[2097500] SB: PASS writing A[0x8d] = 0x8f08c91e
+[2104500] DRIVER: start calc r[131:132] w[131:131]
+     21075 Mon: Read from Addr: 0x83, Data from SRAM A: 0x721100d, Data from SRAM B: 0x95cffb2b
+
+[2107500] SB: READ addr_rd=0x83  A=0x721100d  B=0x95cffb2b
+     21095 Mon: Read from Addr: 0x84, Data from SRAM A: 0x8f1cf61e, Data from SRAM B: 0x6b3050d
+
+[2109500] SB: READ addr_rd=0x84  A=0x8f1cf61e  B=0x6b3050d
+     21105 Mon: Write to Addr: 0x83, Data to SRAM A (lower 32 bits): 0x9cf10b38, Data to SRAM B (upper 32 bits): 0x95cffb2b
+
+[2110500] SB: PASS writing A[0x83] = 0x9cf10b38
+[2116500] DRIVER: start calc r[41:42] w[41:41]
+     21195 Mon: Read from Addr: 0x29, Data from SRAM A: 0xa4ae3249, Data from SRAM B: 0xe8233ed0
+
+[2119500] SB: READ addr_rd=0x29  A=0xa4ae3249  B=0xe8233ed0
+     21215 Mon: Read from Addr: 0x2a, Data from SRAM A: 0xebfec0d7, Data from SRAM B: 0xa8c7fc51
+
+[2121500] SB: READ addr_rd=0x2a  A=0xebfec0d7  B=0xa8c7fc51
+     21225 Mon: Write to Addr: 0x29, Data to SRAM A (lower 32 bits): 0x8cd17119, Data to SRAM B (upper 32 bits): 0x94c6bd28
+
+[2122500] SB: PASS writing A[0x29] = 0x8cd17119
+[2129500] DRIVER: start calc r[235:236] w[235:235]
+     21325 Mon: Read from Addr: 0xeb, Data from SRAM A: 0xafad455f, Data from SRAM B: 0x46d4ea8c
+
+[2132500] SB: READ addr_rd=0xeb  A=0xafad455f  B=0x46d4ea8c
+     21345 Mon: Read from Addr: 0xec, Data from SRAM A: 0x45e28b8b, Data from SRAM B: 0xf25f01
+
+[2134500] SB: READ addr_rd=0xec  A=0x45e28b8b  B=0xf25f01
+     21355 Mon: Write to Addr: 0xeb, Data to SRAM A (lower 32 bits): 0xf6822feb, Data to SRAM B (upper 32 bits): 0x46d4ea8c
+
+[2135500] SB: PASS writing A[0xeb] = 0xf6822feb
+[2139500] DRIVER: start calc r[153:154] w[153:153]
+     21425 Mon: Read from Addr: 0x99, Data from SRAM A: 0xf3d7a6e7, Data from SRAM B: 0xdcef90b9
+
+[2142500] SB: READ addr_rd=0x99  A=0xf3d7a6e7  B=0xdcef90b9
+     21445 Mon: Read from Addr: 0x9a, Data from SRAM A: 0x12c01224, Data from SRAM B: 0x8d3dc11a
+
+[2144500] SB: READ addr_rd=0x9a  A=0x12c01224  B=0x8d3dc11a
+     21455 Mon: Write to Addr: 0x99, Data to SRAM A (lower 32 bits): 0xd0c737a0, Data to SRAM B (upper 32 bits): 0x9ffdd33e
+
+[2145500] SB: PASS writing A[0x99] = 0xd0c737a0
+[2149500] DRIVER: start calc r[184:185] w[184:184]
+     21525 Mon: Read from Addr: 0xb8, Data from SRAM A: 0x81c39a03, Data from SRAM B: 0x71c129e3
+
+[2152500] SB: READ addr_rd=0xb8  A=0x81c39a03  B=0x71c129e3
+     21545 Mon: Read from Addr: 0xb9, Data from SRAM A: 0xe92431d, Data from SRAM B: 0x58f93db1
+
+[2154500] SB: READ addr_rd=0xb9  A=0xe92431d  B=0x58f93db1
+     21555 Mon: Write to Addr: 0xb8, Data to SRAM A (lower 32 bits): 0xf384c3e6, Data to SRAM B (upper 32 bits): 0x678b80ce
+
+[2155500] SB: PASS writing A[0xb8] = 0xf384c3e6
+[2161500] DRIVER: start calc r[3:4] w[3:3]
+     21645 Mon: Read from Addr: 0x3, Data from SRAM A: 0xb2c28465, Data from SRAM B: 0x89375212
+
+[2164500] SB: READ addr_rd=0x3  A=0xb2c28465  B=0x89375212
+     21665 Mon: Read from Addr: 0x4, Data from SRAM A: 0xf3e301, Data from SRAM B: 0x6d7cd0d
+
+[2166500] SB: READ addr_rd=0x4  A=0xf3e301  B=0x6d7cd0d
+     21675 Mon: Write to Addr: 0x3, Data to SRAM A (lower 32 bits): 0x3bf9d677, Data to SRAM B (upper 32 bits): 0x7cbb00e
+
+[2167500] SB: PASS writing A[0x3] = 0x3bf9d677
+[2176500] DRIVER: start calc r[58:59] w[58:58]
+     21795 Mon: Read from Addr: 0x3a, Data from SRAM A: 0x619434c2, Data from SRAM B: 0x2031f640
+
+[2179500] SB: READ addr_rd=0x3a  A=0x619434c2  B=0x2031f640
+     21815 Mon: Read from Addr: 0x3b, Data from SRAM A: 0x2031f640, Data from SRAM B: 0xb52a416
+
+[2181500] SB: READ addr_rd=0x3b  A=0x2031f640  B=0xb52a416
+     21825 Mon: Write to Addr: 0x3a, Data to SRAM A (lower 32 bits): 0x81c62b02, Data to SRAM B (upper 32 bits): 0x2b849a56
+
+[2182500] SB: PASS writing A[0x3a] = 0x81c62b02
+[2191500] DRIVER: start calc r[15:16] w[15:15]
+     21945 Mon: Read from Addr: 0xf, Data from SRAM A: 0xb1ef6263, Data from SRAM B: 0x573870a
+
+[2194500] SB: READ addr_rd=0xf  A=0xb1ef6263  B=0x573870a
+     21965 Mon: Read from Addr: 0x10, Data from SRAM A: 0x840e4106, Data from SRAM B: 0x43c58685
+
+[2196500] SB: READ addr_rd=0x10  A=0x840e4106  B=0x43c58685
+     21975 Mon: Write to Addr: 0xf, Data to SRAM A (lower 32 bits): 0xb762e96d, Data to SRAM B (upper 32 bits): 0xc7d3c78b
+
+[2197500] SB: PASS writing A[0xf] = 0xb762e96d
+[2202500] DRIVER: start calc r[120:121] w[120:120]
+     22055 Mon: Read from Addr: 0x78, Data from SRAM A: 0x19452132, Data from SRAM B: 0xdece5ebd
+
+[2205500] SB: READ addr_rd=0x78  A=0x19452132  B=0xdece5ebd
+     22075 Mon: Read from Addr: 0x79, Data from SRAM A: 0x424fcd84, Data from SRAM B: 0xf249a4e4
+
+[2207500] SB: READ addr_rd=0x79  A=0x424fcd84  B=0xf249a4e4
+     22085 Mon: Write to Addr: 0x78, Data to SRAM A (lower 32 bits): 0xf8137fef, Data to SRAM B (upper 32 bits): 0x34997268
+
+[2208500] SB: PASS writing A[0x78] = 0xf8137fef
+[2216500] DRIVER: start calc r[154:155] w[154:154]
+     22195 Mon: Read from Addr: 0x9a, Data from SRAM A: 0x12c01224, Data from SRAM B: 0x8d3dc11a
+
+[2219500] SB: READ addr_rd=0x9a  A=0x12c01224  B=0x8d3dc11a
+     22215 Mon: Read from Addr: 0x9b, Data from SRAM A: 0x64ba0fc9, Data from SRAM B: 0x2883b151
+
+[2221500] SB: READ addr_rd=0x9b  A=0x64ba0fc9  B=0x2883b151
+     22225 Mon: Write to Addr: 0x9a, Data to SRAM A (lower 32 bits): 0x9ffdd33e, Data to SRAM B (upper 32 bits): 0x8d3dc11a
+
+[2222500] SB: PASS writing A[0x9a] = 0x9ffdd33e
+[2231500] DRIVER: start calc r[40:41] w[40:40]
+     22345 Mon: Read from Addr: 0x28, Data from SRAM A: 0xf2a9f7e4, Data from SRAM B: 0x8cd17119
+
+[2234500] SB: READ addr_rd=0x28  A=0xf2a9f7e4  B=0x8cd17119
+     22365 Mon: Read from Addr: 0x29, Data from SRAM A: 0x8cd17119, Data from SRAM B: 0x94c6bd28
+
+[2236500] SB: READ addr_rd=0x29  A=0x8cd17119  B=0x94c6bd28
+     22375 Mon: Write to Addr: 0x28, Data to SRAM A (lower 32 bits): 0x7f7b68fd, Data to SRAM B (upper 32 bits): 0x21982e41
+
+[2237500] SB: PASS writing A[0x28] = 0x7f7b68fd
+[2243500] DRIVER: start calc r[134:135] w[134:134]
+     22465 Mon: Read from Addr: 0x86, Data from SRAM A: 0x2c243857, Data from SRAM B: 0x3e7f887c
+
+[2246500] SB: READ addr_rd=0x86  A=0x2c243857  B=0x3e7f887c
+     22485 Mon: Read from Addr: 0x87, Data from SRAM A: 0xa0c02441, Data from SRAM B: 0x9dbf643b
+
+[2248500] SB: READ addr_rd=0x87  A=0xa0c02441  B=0x9dbf643b
+     22495 Mon: Write to Addr: 0x86, Data to SRAM A (lower 32 bits): 0x6aa3c0d3, Data to SRAM B (upper 32 bits): 0x3e7f887c
+
+[2249500] SB: PASS writing A[0x86] = 0x6aa3c0d3
+[2257500] DRIVER: start calc r[19:20] w[19:19]
+     22605 Mon: Read from Addr: 0x13, Data from SRAM A: 0x617d6ec1, Data from SRAM B: 0x617d6ec1
+
+[2260500] SB: READ addr_rd=0x13  A=0x617d6ec1  B=0x617d6ec1
+     22625 Mon: Read from Addr: 0x14, Data from SRAM A: 0x617d6ec1, Data from SRAM B: 0x1d375e38
+
+[2262500] SB: READ addr_rd=0x14  A=0x617d6ec1  B=0x1d375e38
+     22635 Mon: Write to Addr: 0x13, Data to SRAM A (lower 32 bits): 0xc2fadd82, Data to SRAM B (upper 32 bits): 0x7eb4ccf9
+
+[2263500] SB: PASS writing A[0x13] = 0xc2fadd82
+[2271500] DRIVER: start calc r[40:41] w[40:40]
+     22745 Mon: Read from Addr: 0x28, Data from SRAM A: 0x7f7b68fd, Data from SRAM B: 0x21982e41
+
+[2274500] SB: READ addr_rd=0x28  A=0x7f7b68fd  B=0x21982e41
+     22765 Mon: Read from Addr: 0x29, Data from SRAM A: 0x8cd17119, Data from SRAM B: 0x94c6bd28
+
+[2276500] SB: READ addr_rd=0x29  A=0x8cd17119  B=0x94c6bd28
+     22775 Mon: Write to Addr: 0x28, Data to SRAM A (lower 32 bits): 0xa113973e, Data to SRAM B (upper 32 bits): 0x21982e41
+
+[2277500] SB: PASS writing A[0x28] = 0xa113973e
+[2286500] DRIVER: start calc r[82:83] w[82:82]
+     22895 Mon: Read from Addr: 0x52, Data from SRAM A: 0xe3c530c7, Data from SRAM B: 0x975c9c2e
+
+[2289500] SB: READ addr_rd=0x52  A=0xe3c530c7  B=0x975c9c2e
+     22915 Mon: Read from Addr: 0x53, Data from SRAM A: 0x8477e408, Data from SRAM B: 0xe41451c
+
+[2291500] SB: READ addr_rd=0x53  A=0x8477e408  B=0xe41451c
+     22925 Mon: Write to Addr: 0x52, Data to SRAM A (lower 32 bits): 0x7b21ccf5, Data to SRAM B (upper 32 bits): 0x92b92924
+
+[2292500] SB: PASS writing A[0x52] = 0x7b21ccf5
+[2301500] DRIVER: start calc r[49:50] w[49:49]
+     23045 Mon: Read from Addr: 0x31, Data from SRAM A: 0x4d99149a, Data from SRAM B: 0x3bf9d677
+
+[2304500] SB: READ addr_rd=0x31  A=0x4d99149a  B=0x3bf9d677
+     23065 Mon: Read from Addr: 0x32, Data from SRAM A: 0x2dda595b, Data from SRAM B: 0x248b4b49
+
+[2306500] SB: READ addr_rd=0x32  A=0x2dda595b  B=0x248b4b49
+     23075 Mon: Write to Addr: 0x31, Data to SRAM A (lower 32 bits): 0x8992eb11, Data to SRAM B (upper 32 bits): 0x5265a4a4
+
+[2307500] SB: PASS writing A[0x31] = 0x8992eb11
+[2316500] DRIVER: start calc r[71:72] w[71:71]
+     23195 Mon: Read from Addr: 0x47, Data from SRAM A: 0x3cd18779, Data from SRAM B: 0xdc2bc4b8
+
+[2319500] SB: READ addr_rd=0x47  A=0x3cd18779  B=0xdc2bc4b8
+     23215 Mon: Read from Addr: 0x48, Data from SRAM A: 0x4a74bf94, Data from SRAM B: 0x49c65d93
+
+[2321500] SB: READ addr_rd=0x48  A=0x4a74bf94  B=0x49c65d93
+     23225 Mon: Write to Addr: 0x47, Data to SRAM A (lower 32 bits): 0x18fd4c31, Data to SRAM B (upper 32 bits): 0x943b1d27
+
+[2322500] SB: PASS writing A[0x47] = 0x18fd4c31
+[2326500] DRIVER: start calc r[57:58] w[57:57]
+     23295 Mon: Read from Addr: 0x39, Data from SRAM A: 0xafd8565f, Data from SRAM B: 0x22290d44
+
+[2329500] SB: READ addr_rd=0x39  A=0xafd8565f  B=0x22290d44
+     23315 Mon: Read from Addr: 0x3a, Data from SRAM A: 0x81c62b02, Data from SRAM B: 0x2b849a56
+
+[2331500] SB: READ addr_rd=0x3a  A=0x81c62b02  B=0x2b849a56
+     23325 Mon: Write to Addr: 0x39, Data to SRAM A (lower 32 bits): 0xd20163a3, Data to SRAM B (upper 32 bits): 0xad4ac558
+
+[2332500] SB: PASS writing A[0x39] = 0xd20163a3
+[2341500] DRIVER: start calc r[233:234] w[233:233]
+     23445 Mon: Read from Addr: 0xe9, Data from SRAM A: 0x3bed5377, Data from SRAM B: 0x5ad6c7b5
+
+[2344500] SB: READ addr_rd=0xe9  A=0x3bed5377  B=0x5ad6c7b5
+     23465 Mon: Read from Addr: 0xea, Data from SRAM A: 0xccf80799, Data from SRAM B: 0xf6822feb
+
+[2346500] SB: READ addr_rd=0xea  A=0xccf80799  B=0xf6822feb
+     23475 Mon: Write to Addr: 0xe9, Data to SRAM A (lower 32 bits): 0x96c41b2c, Data to SRAM B (upper 32 bits): 0xc37a3784
+
+[2347500] SB: PASS writing A[0xe9] = 0x96c41b2c
+[2355500] DRIVER: start calc r[21:22] w[21:21]
+     23585 Mon: Read from Addr: 0x15, Data from SRAM A: 0xbd024f79, Data from SRAM B: 0x60350ebf
+
+[2358500] SB: READ addr_rd=0x15  A=0xbd024f79  B=0x60350ebf
+     23605 Mon: Read from Addr: 0x16, Data from SRAM A: 0xeffe91d, Data from SRAM B: 0xe7c572cf
+
+[2360500] SB: READ addr_rd=0x16  A=0xeffe91d  B=0xe7c572cf
+     23615 Mon: Write to Addr: 0x15, Data to SRAM A (lower 32 bits): 0x1d375e38, Data to SRAM B (upper 32 bits): 0xf6c55bec
+
+[2361500] SB: PASS writing A[0x15] = 0x1d375e38
+[2367500] DRIVER: start calc r[154:155] w[154:154]
+     23705 Mon: Read from Addr: 0x9a, Data from SRAM A: 0x9ffdd33e, Data from SRAM B: 0x8d3dc11a
+
+[2370500] SB: READ addr_rd=0x9a  A=0x9ffdd33e  B=0x8d3dc11a
+     23725 Mon: Read from Addr: 0x9b, Data from SRAM A: 0x64ba0fc9, Data from SRAM B: 0x2883b151
+
+[2372500] SB: READ addr_rd=0x9b  A=0x64ba0fc9  B=0x2883b151
+     23735 Mon: Write to Addr: 0x9a, Data to SRAM A (lower 32 bits): 0x2d3b9458, Data to SRAM B (upper 32 bits): 0x8d3dc11a
+
+[2373500] SB: PASS writing A[0x9a] = 0x2d3b9458
+[2377500] DRIVER: start calc r[175:176] w[175:175]
+     23805 Mon: Read from Addr: 0xaf, Data from SRAM A: 0x9de17c3b, Data from SRAM B: 0x5b60e5b6
+
+[2380500] SB: READ addr_rd=0xaf  A=0x9de17c3b  B=0x5b60e5b6
+     23825 Mon: Read from Addr: 0xb0, Data from SRAM A: 0xfbdfc2f7, Data from SRAM B: 0xcf14ce9e
+
+[2382500] SB: READ addr_rd=0xb0  A=0xfbdfc2f7  B=0xcf14ce9e
+     23835 Mon: Write to Addr: 0xaf, Data to SRAM A (lower 32 bits): 0xf94261f1, Data to SRAM B (upper 32 bits): 0xcaf49195
+
+[2383500] SB: PASS writing A[0xaf] = 0xf94261f1
+[2387500] DRIVER: start calc r[37:38] w[37:37]
+     23905 Mon: Read from Addr: 0x25, Data from SRAM A: 0x4fa1559f, Data from SRAM B: 0x47b9a18f
+
+[2390500] SB: READ addr_rd=0x25  A=0x4fa1559f  B=0x47b9a18f
+     23925 Mon: Read from Addr: 0x26, Data from SRAM A: 0x7c6da9f8, Data from SRAM B: 0xdbcd60b7
+
+[2392500] SB: READ addr_rd=0x26  A=0x7c6da9f8  B=0xdbcd60b7
+     23935 Mon: Write to Addr: 0x25, Data to SRAM A (lower 32 bits): 0x975af72e, Data to SRAM B (upper 32 bits): 0x583b0aaf
+
+[2393500] SB: PASS writing A[0x25] = 0x975af72e
+[2401500] DRIVER: start calc r[40:41] w[40:40]
+     24045 Mon: Read from Addr: 0x28, Data from SRAM A: 0xa113973e, Data from SRAM B: 0x21982e41
+
+[2404500] SB: READ addr_rd=0x28  A=0xa113973e  B=0x21982e41
+     24065 Mon: Read from Addr: 0x29, Data from SRAM A: 0x8cd17119, Data from SRAM B: 0x94c6bd28
+
+[2406500] SB: READ addr_rd=0x29  A=0x8cd17119  B=0x94c6bd28
+     24075 Mon: Write to Addr: 0x28, Data to SRAM A (lower 32 bits): 0xc2abc57f, Data to SRAM B (upper 32 bits): 0x21982e41
+
+[2407500] SB: PASS writing A[0x28] = 0xc2abc57f
+[2412500] DRIVER: start calc r[86:87] w[86:86]
+     24155 Mon: Read from Addr: 0x56, Data from SRAM A: 0xed3408da, Data from SRAM B: 0x9eb7c63d
+
+[2415500] SB: READ addr_rd=0x56  A=0xed3408da  B=0x9eb7c63d
+     24175 Mon: Read from Addr: 0x57, Data from SRAM A: 0x334ea766, Data from SRAM B: 0xb855c470
+
+[2417500] SB: READ addr_rd=0x57  A=0x334ea766  B=0xb855c470
+     24185 Mon: Write to Addr: 0x56, Data to SRAM A (lower 32 bits): 0x8bebcf17, Data to SRAM B (upper 32 bits): 0xeba46bd6
+
+[2418500] SB: PASS writing A[0x56] = 0x8bebcf17
+[2426500] DRIVER: start calc r[162:163] w[162:162]
+     24295 Mon: Read from Addr: 0xa2, Data from SRAM A: 0x1c719738, Data from SRAM B: 0x20769140
+
+[2429500] SB: READ addr_rd=0xa2  A=0x1c719738  B=0x20769140
+     24315 Mon: Read from Addr: 0xa3, Data from SRAM A: 0x94097628, Data from SRAM B: 0x7b0da9f6
+
+[2431500] SB: READ addr_rd=0xa3  A=0x94097628  B=0x7b0da9f6
+     24325 Mon: Write to Addr: 0xa2, Data to SRAM A (lower 32 bits): 0x3ce82878, Data to SRAM B (upper 32 bits): 0xf17201e
+
+[2432500] SB: PASS writing A[0xa2] = 0x3ce82878
+[2437500] DRIVER: start calc r[110:111] w[110:110]
+     24405 Mon: Read from Addr: 0x6e, Data from SRAM A: 0xdc1011b7, Data from SRAM B: 0xebe3e5d6
+
+[2440500] SB: READ addr_rd=0x6e  A=0xdc1011b7  B=0xebe3e5d6
+     24425 Mon: Read from Addr: 0x6f, Data from SRAM A: 0x4f75ff9e, Data from SRAM B: 0x9c6de638
+
+[2442500] SB: READ addr_rd=0x6f  A=0x4f75ff9e  B=0x9c6de638
+     24435 Mon: Write to Addr: 0x6e, Data to SRAM A (lower 32 bits): 0xc7f3f78d, Data to SRAM B (upper 32 bits): 0xebe3e5d6
+
+[2443500] SB: PASS writing A[0x6e] = 0xc7f3f78d
+[2447500] DRIVER: start calc r[191:192] w[191:191]
+     24505 Mon: Read from Addr: 0xbf, Data from SRAM A: 0xc63a928c, Data from SRAM B: 0x48487d90
+
+[2450500] SB: READ addr_rd=0xbf  A=0xc63a928c  B=0x48487d90
+     24525 Mon: Read from Addr: 0xc0, Data from SRAM A: 0xbeac117, Data from SRAM B: 0x352d616a
+
+[2452500] SB: READ addr_rd=0xc0  A=0xbeac117  B=0x352d616a
+     24535 Mon: Write to Addr: 0xbf, Data to SRAM A (lower 32 bits): 0xe83101c, Data to SRAM B (upper 32 bits): 0x41182281
+
+[2453500] SB: PASS writing A[0xbf] = 0xe83101c
+[2461500] DRIVER: start calc r[35:36] w[35:35]
+     24645 Mon: Read from Addr: 0x23, Data from SRAM A: 0x78d99bf1, Data from SRAM B: 0x6c9c4bd9
+
+[2464500] SB: READ addr_rd=0x23  A=0x78d99bf1  B=0x6c9c4bd9
+     24665 Mon: Read from Addr: 0x24, Data from SRAM A: 0x31230762, Data from SRAM B: 0x2635fb4c
+
+[2466500] SB: READ addr_rd=0x24  A=0x31230762  B=0x2635fb4c
+     24675 Mon: Write to Addr: 0x23, Data to SRAM A (lower 32 bits): 0xe575e7ca, Data to SRAM B (upper 32 bits): 0x575902ae
+
+[2467500] SB: PASS writing A[0x23] = 0xe575e7ca
+[2476500] DRIVER: start calc r[101:102] w[101:101]
+     24795 Mon: Read from Addr: 0x65, Data from SRAM A: 0x7a8c59f5, Data from SRAM B: 0x9ab48835
+
+[2479500] SB: READ addr_rd=0x65  A=0x7a8c59f5  B=0x9ab48835
+     24815 Mon: Read from Addr: 0x66, Data from SRAM A: 0x949a8a29, Data from SRAM B: 0x60b175c1
+
+[2481500] SB: READ addr_rd=0x66  A=0x949a8a29  B=0x60b175c1
+     24825 Mon: Write to Addr: 0x65, Data to SRAM A (lower 32 bits): 0x1540e22a, Data to SRAM B (upper 32 bits): 0xf54bffea
+
+[2482500] SB: PASS writing A[0x65] = 0x1540e22a
+[2490500] DRIVER: start calc r[3:4] w[3:3]
+     24935 Mon: Read from Addr: 0x3, Data from SRAM A: 0x3bf9d677, Data from SRAM B: 0x7cbb00e
+
+[2493500] SB: READ addr_rd=0x3  A=0x3bf9d677  B=0x7cbb00e
+     24955 Mon: Read from Addr: 0x4, Data from SRAM A: 0xf3e301, Data from SRAM B: 0x6d7cd0d
+
+[2495500] SB: READ addr_rd=0x4  A=0xf3e301  B=0x6d7cd0d
+     24965 Mon: Write to Addr: 0x3, Data to SRAM A (lower 32 bits): 0x43c58685, Data to SRAM B (upper 32 bits): 0x7cbb00e
+
+[2496500] SB: PASS writing A[0x3] = 0x43c58685
+[2503500] DRIVER: start calc r[7:8] w[7:7]
+     25065 Mon: Read from Addr: 0x7, Data from SRAM A: 0x7cfde9f9, Data from SRAM B: 0xe33724c6
+
+[2506500] SB: READ addr_rd=0x7  A=0x7cfde9f9  B=0xe33724c6
+     25085 Mon: Read from Addr: 0x8, Data from SRAM A: 0xe2f784c5, Data from SRAM B: 0xd513d2aa
+
+[2508500] SB: READ addr_rd=0x8  A=0xe2f784c5  B=0xd513d2aa
+     25095 Mon: Write to Addr: 0x7, Data to SRAM A (lower 32 bits): 0x60350ebf, Data to SRAM B (upper 32 bits): 0xb80b576f
+
+[2509500] SB: PASS writing A[0x7] = 0x60350ebf
+Reset during READ1
+[2612500] DRIVER: start calc r[4:7] w[100:103]
+     26155 Mon: Read from Addr: 0x4, Data from SRAM A: 0xf3e301, Data from SRAM B: 0x6d7cd0d
+
+[2615500] SB: READ addr_rd=0x4  A=0xf3e301  B=0x6d7cd0d
+Reset during ADD1
+[2622500] DRIVER: start calc r[4:7] w[100:103]
+xmsim: *E,ASRTST (./sym_links/calc_tb_top.sv,423): (time 26255 NS) Assertion calc_tb_top.assert_idle_and_stabilize.__assert_7 has failed
+[2625500] FSM did not return to IDLE after reset, state=2
+Reset during READ2
+[2629500] DRIVER: start calc r[4:7] w[100:103]
+Reset during ADD2
+[2641500] DRIVER: start calc r[4:7] w[100:103]
+Reset during WRITE
+[2654500] DRIVER: start calc r[4:7] w[100:103]
+TEST PASSED
+Simulation complete via $finish(1) at time 26665 NS + 0
+./sym_links/calc_tb_top.sv:361     $finish;
+xcelium> exit
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  calc_tb_top(calc_tb_top)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_2347f9bd_7eb0fc6f.ucm
+  data               :  ./cov_work/scope/test/icc_2347f9bd_7eb0fc6f.ucd
+TOOL:	xrun(64)	25.03-s003: Exiting on Sep 27, 2025 at 00:57:33 EDT  (total: 00:00:01)

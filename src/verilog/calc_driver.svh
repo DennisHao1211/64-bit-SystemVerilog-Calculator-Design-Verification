@@ -11,14 +11,11 @@ class calc_driver #(int DataSize, int AddrSize);
   endfunction
 
   task reset_task();
-    // TODO: Write the code to apply a reset sequence to the DUT.
-    // HINT: Does the DUT does an active-high or active-low reset?
-    // HINT: Use @(calcVif.cb) to wait for a clock cycle. This is called a clocking
-    // event which is equivalent to @(posedge clk) if the clocking block (CB) uses the
-    // same clock signal, but with the input signals in the CB being sampled with the
-    // specified delay BEFORE the clock edge and the output signals in the CB being
-    // sampled with the specified delay AFTER the clock edge. This helps with addressing
-    // race conditions in simulation to keep testbenches deterministic.
+    // Generate a short active-high reset pulse and leave reset deasserted afterwards.
+    calcVif.cb.reset <= 1'b1;
+    repeat (2) @(calcVif.cb);
+    calcVif.cb.reset <= 1'b0;
+    @(calcVif.cb);
   endtask
 
   virtual task initialize_sram(input [AddrSize-1:0] addr, input [DataSize-1:0] data, input logic block_sel);
@@ -33,13 +30,23 @@ class calc_driver #(int DataSize, int AddrSize);
       input logic [AddrSize-1:0] write_start_addr, input logic [AddrSize-1:0] write_end_addr,
       input bit direct = 1);
 
+    static bit did_reset_once = 0;
     int delay;
     calc_seq_item #(DataSize, AddrSize) trans;
-    // TODO: Drive the calculation parameters to the DUT's interface.
-    // HINT: Use calcVif.cb.signal_name <= value;
-    //       Think about what the DUT's top level inputs are
-    // TODO: Add a display statement to show the transaction is starting.
-    reset_task();
+
+    calcVif.cb.reset <= 1'b1;
+    @(calcVif.cb);
+
+    calcVif.cb.read_start_addr  <= read_start_addr;
+    calcVif.cb.read_end_addr    <= read_end_addr;
+    calcVif.cb.write_start_addr <= write_start_addr;
+    calcVif.cb.write_end_addr   <= write_end_addr;
+
+    repeat (2) @(calcVif.cb);
+
+    calcVif.cb.reset <= 1'b0;
+
+    $display("[%0t] DRIVER: start calc r[%0d:%0d] w[%0d:%0d]", $time, read_start_addr, read_end_addr, write_start_addr, write_end_addr);
     @(calcVif.cb iff calcVif.cb.ready);
 
     if (!direct) begin // Random Mode
@@ -50,7 +57,7 @@ class calc_driver #(int DataSize, int AddrSize);
         end
       end
     end
-    calcVif.cb.reset <= 1;
+    calcVif.cb.reset <= 1'b0;
   endtask : start_calc
 
   virtual task drive();

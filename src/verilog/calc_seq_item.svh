@@ -1,5 +1,6 @@
 class calc_seq_item #(int DataSize, int AddrSize);
 
+  bit  is_init;
   rand logic rdn_wr;
   rand logic [AddrSize-1:0] read_start_addr;
   rand logic [AddrSize-1:0] read_end_addr;
@@ -13,11 +14,22 @@ class calc_seq_item #(int DataSize, int AddrSize);
   rand logic initialize;
 
   // TODO: Implement constraint to make sure read end addresses are valid
-  constraint read_end_gt_start {}
+  constraint read_end_gt_start {
+    (read_start_addr + 1) <= {AddrSize{1'b1}};
+    read_end_addr >= (read_start_addr + 1);
+  }
   // TODO: Implement constraint to make sure write end addresses are valid
-  constraint write_end_gt_start {}
+  constraint write_end_gt_start {
+    solve write_start_addr before write_end_addr;
+    write_end_addr >= write_start_addr;
+  }
   // TODO: Implement constraint to make sure the read address ranges and write address ranges are valid
-  constraint address_ranges_valid {}
+  constraint address_ranges_valid {
+    read_start_addr  inside {[ '0 : {AddrSize{1'b1}} ]};
+    read_end_addr    inside {[ '0 : {AddrSize{1'b1}} ]};
+    write_start_addr inside {[ '0 : {AddrSize{1'b1}} ]};
+    write_end_addr   inside {[ '0 : {AddrSize{1'b1}} ]};
+  }
 
   function new();
   endfunction

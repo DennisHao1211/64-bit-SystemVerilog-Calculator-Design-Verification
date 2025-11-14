@@ -10,14 +10,59 @@ module top_lvl import calculator_pkg::*; (
     input  logic [ADDR_W-1:0]    read_start_addr,
     input  logic [ADDR_W-1:0]    read_end_addr,
     input  logic [ADDR_W-1:0]    write_start_addr,
-    input  logic [ADDR_W-1:0]    write_end_addr
-    
+    input  logic [ADDR_W-1:0]    write_end_addr,
+    output logic                 loc_sel
 );
+    logic                     read_ctrl;
+    logic [ADDR_W-1:0]        r_addr_ctrl;
+    logic [MEM_WORD_SIZE-1:0] r_data_ctrl;
+
+    logic                     write_a, write_b;
+    logic [ADDR_W-1:0]        w_addr_a, w_addr_b;
+    logic [DATA_W-1:0]        w_data_a, w_data_b;
+
+    logic [DATA_W-1:0]        op_a_ctrl, op_b_ctrl;
+    logic [DATA_W-1:0]        adder_sum;
+
+    logic                     buffer_control_ctrl;
+    logic                     buffer_we_ctrl;
+    logic [MEM_WORD_SIZE-1:0] buffer_result;
+    assign loc_sel = buffer_control_ctrl;
+
+    logic [DATA_W-1:0]        sram_a_dout, sram_b_dout;
+
+    assign r_data_ctrl = {sram_b_dout, sram_a_dout};
 
     //Any wires, combinational assigns, etc should go at the top for visibility
    
     //TODO: Finish instantiation of your controller module
-	controller u_ctrl ();
+	  controller u_ctrl (
+        .clk_i          (clk),
+        .rst_i          (rst),
+        .read_start_addr(read_start_addr),
+        .read_end_addr  (read_end_addr),
+        .write_start_addr(write_start_addr),
+        .write_end_addr (write_end_addr),
+       
+        .write_a        (write_a),
+        .w_addr_a       (w_addr_a),
+        .w_data_a       (w_data_a),
+        .write_b        (write_b),
+        .w_addr_b       (w_addr_b),
+        .w_data_b       (w_data_b),
+
+        .read           (read_ctrl),
+        .r_addr         (r_addr_ctrl),
+        .r_data         (r_data_ctrl),
+
+        .buffer_control (buffer_control_ctrl),
+        .buffer_we      (buffer_we_ctrl),
+
+        .op_a           (op_a_ctrl),
+        .op_b           (op_b_ctrl),
+
+        .buff_result    (buffer_result)
+    );
 
     //TODO: Look at the sky130_sram_2kbyte_1rw1r_32x512_8 module and instantiate it using variables defined above.
     // Note: This module has two ports, port 0 for read and write and port 1 for read only. We are using port 0 writing and port 1 for reading in this design.    
@@ -38,31 +83,50 @@ module top_lvl import calculator_pkg::*; (
      */
   	
       sky130_sram_2kbyte_1rw1r_32x512_8 sram_A (
-        .clk0   (),  
-        .csb0   (),
-        .web0   (), 
-        .wmask0 (), 
-        .addr0  (), 
-        .din0   (),
-        .dout0  (), 
-        .clk1   (), 
-        .csb1   (), 
-        .addr1  (), 
-        .dout1  () 
+        .clk0   (clk),
+        .csb0   (~write_a),
+        .web0   (~write_a),
+        .wmask0 (4'hF),
+        .addr0  (w_addr_a),
+        .din0   (w_data_a),
+        .dout0  (),
+        .clk1   (clk),
+        .csb1   (~read_ctrl),
+        .addr1  (r_addr_ctrl),
+        .dout1  (sram_a_dout)
     );
 
   
     //TODO: Instantiate the second SRAM for the upper half of the memory.
-    sky130_sram_2kbyte_1rw1r_32x512_8 sram_B ();
+    sky130_sram_2kbyte_1rw1r_32x512_8 sram_B (
+        .clk0   (clk),
+        .csb0   (~write_b),
+        .web0   (~write_b),
+        .wmask0 (4'hF),
+        .addr0  (w_addr_b),
+        .din0   (w_data_b),
+        .dout0  (),
+        .clk1   (clk),
+        .csb1   (~read_ctrl),
+        .addr1  (r_addr_ctrl),
+        .dout1  (sram_b_dout)
+    );
   	
   	//TODO: Finish instantiation of your adder module
     adder32 u_adder (
-
+        .a_i   (op_a_ctrl),
+        .b_i   (op_b_ctrl),
+        .sum_o (adder_sum)
     );
  
     //TODO: Finish instantiation of your result buffer
     result_buffer u_resbuf (
-      
+        .clk_i    (clk),
+        .rst_i    (rst),
+        .we_i     (buffer_we_ctrl),
+        .result_i (adder_sum),
+        .loc_sel  (buffer_control_ctrl),
+        .buffer_o (buffer_result)
     );
 
 endmodule

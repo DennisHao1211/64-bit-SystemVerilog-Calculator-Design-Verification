@@ -1,0 +1,12 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-sv
+-LINEDEBUG
+-DEFINE
+SIM=1
+-DEFINE
+CADENCE=1
+-INCDIR
+sym_links

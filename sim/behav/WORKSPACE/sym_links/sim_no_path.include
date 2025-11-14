@@ -1,0 +1,15 @@
+sym_links/calculator_pkg.sv
+sym_links/adder32.sv
+sym_links/controller.sv
+sym_links/full_adder.sv
+sym_links/result_buffer.sv
+sym_links/sky130_sram_2kbyte_1rw1r_32x512_8.sv
+sym_links/top_lvl.sv
+sym_links/calc_seq_item.svh
+sym_links/calc_tb_pkg.sv
+sym_links/calc_driver.svh
+sym_links/calc_monitor.svh
+sym_links/calc_sb.svh
+sym_links/calc_sequencer.svh
+sym_links/calc_if.sv
+sym_links/calc_tb_top.sv

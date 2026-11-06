@@ -12,4 +12,5 @@
 ../../src/verilog/calc_sb.svh
 ../../src/verilog/calc_sequencer.svh
 ../../src/verilog/calc_if.sv
+../../src/verilog/calc_coverage.sv
 ../../src/verilog/calc_tb_top.sv

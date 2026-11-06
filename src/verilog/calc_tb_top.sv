@@ -72,6 +72,45 @@ module calc_tb_top;
 
   always #5 clk = ~clk;
 
+  // Functional coverage
+  calc_coverage u_cov (
+    .clk        (clk),
+    .rst        (rst),
+    .state      (state),
+    .rd_start   (my_calc.u_ctrl.read_start_addr),
+    .rd_end     (my_calc.u_ctrl.read_end_addr),
+    .wr_start   (my_calc.u_ctrl.write_start_addr),
+    .wr_end     (my_calc.u_ctrl.write_end_addr),
+    .buffer_we  (my_calc.buffer_we_ctrl),
+    .buffer_loc (my_calc.buffer_control_ctrl),
+    .op_a       (my_calc.op_a_ctrl),
+    .op_b       (my_calc.op_b_ctrl)
+  );
+
+  // Operand generator biased toward the corners tracked by cg_datapath
+  function automatic logic [DataSize-1:0] corner_data();
+    case ($urandom_range(0, 9))
+      0, 1:    return '0;
+      2, 3:    return '1;
+      4:       return DataSize'($urandom_range(1, 32'h0000_FFFF));
+      default: return DataSize'($urandom());
+    endcase
+  endfunction
+
+  // Coverage-closure phase: for each transaction from gen_cov, preload the read window
+  // with corner-biased operands, then run the calculation (checked by the scoreboard)
+  task automatic run_coverage_random(int num);
+    calc_seq_item #(DataSize, AddrSize) tr;
+    calc_sequencer_h.gen_cov(num);
+    while (calc_sequencer_h.calc_box.try_get(tr)) begin
+      for (int a = tr.read_start_addr; a <= tr.read_end_addr; a++) begin
+        write_sram(addr_t'(a), corner_data(), 1'b0);
+        write_sram(addr_t'(a), corner_data(), 1'b1);
+      end
+      start_and_wait(tr.read_start_addr, tr.read_end_addr, tr.write_start_addr, tr.write_end_addr);
+    end
+  endtask
+
   task write_sram(input [AddrSize-1:0] addr, input [DataSize-1:0] data, input logic block_sel);
     @(posedge clk);
     if (!block_sel) begin
@@ -311,6 +350,11 @@ assert (state == calculator_pkg::S_IDLE)
     calc_sequencer_h.gen(100, 8'h00, 8'hFE);
     calc_driver_h.drive();
     repeat (100) @(posedge clk);
+
+    // Coverage-closure random: variable window lengths, full address range,
+    // different write-window placements, and corner-biased operands
+    $display("Coverage-closure randomized testing");
+    run_coverage_random(200);
 
 
 // Reset during FSM states 
